@@ -1,0 +1,127 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		首页
+	</div>
+	<div class="jfa-search-box">
+		<form action="/admin/project/search">
+			### <input class="jfa-search" type="text" name="keyword" placeholder="搜索" >
+		</form>
+	</div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-left">
+				<div class="jfa-content">
+					<div class="profile-title">欢迎，#(loginAccount.nickName)</div>
+					<div class="profile-user-name">#(loginAccount.userName)</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-right">
+				<div class="jfa-content">
+					<div class="profile-title">#(accountProfile.title)</div>
+					<div class="profile-num">
+						<a href="/admin/account">#(accountProfile.total)</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-left">
+				<div class="jfa-content">
+					<div class="profile-title">#(projectProfile.title)</div>
+					<div class="profile-num">
+						<a href="/admin/project">#(projectProfile.total)</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-right">
+				<div class="jfa-content">
+					<div class="profile-title">#(shareProfile.title)</div>
+					<div class="profile-num">
+						<a href="/admin/share">#(shareProfile.total)</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-6 col-sm-6 col-left">
+				<div class="jfa-content">
+					<div class="profile-title">#(feedbackProfile.title)</div>
+					<div class="profile-num">
+						<a href="/admin/feedback">#(feedbackProfile.total)</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 col-right">
+				<div class="jfa-content">
+					<div class="profile-title">#(permissionProfile.title)</div>
+					<div class="profile-num">
+						<a href="/admin/permission">#(permissionProfile.total)</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div><!-- END OF bootstrap container -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+	.jfa-content-box {
+		padding: 20px 10px 20px 10px;
+	}
+	.jfa-content {
+		height: 160px;
+		padding: 30px 0 0 30px;
+
+		font-size: 16px;
+		font-weight: 400;
+	}
+	.row {
+		margin-bottom: 20px;
+	}
+	.col-md-6 {
+		padding: 0 10px 0 10px;
+	}
+
+	.profile-title {
+		font-size: 16px;
+		// color: #616161;
+		color: #757575;
+	}
+	.profile-user-name {
+		margin-top: 8px;
+		font-size: 14px;
+		color: #8f8f8f;
+	}
+	.profile-num {
+		margin: 12px 0 0 120px;
+		font-size: 30px;
+	}
+
+	.profile-num a {
+		text-decoration: none;
+	}
+	.profile-num a:hover {
+		color: #44B549;
+	}
+</style>
+
+<script type="text/javascript">
+</script>
+#end
+
+
+

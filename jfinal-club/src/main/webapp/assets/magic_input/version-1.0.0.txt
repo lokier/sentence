@@ -1,0 +1,38 @@
+
+
+版本号：1.0.1  下载日期：2018-06-15
+
+源码：
+https://github.com/dcsite/magic-input
+
+oschina：
+https://www.oschina.net/p/magic-input
+
+在线演示：
+http://wangchujiang.com/magic-input/
+
+-----------------------------------------------
+
+文档：
+1：设置input大小的class
+   sm 是 small的缩写 , lg 是 large缩写
+
+   在 Checkbox中设置下面class
+    mgc-sm mgc-lg
+
+   在 Radio Button中设置下面
+    mgr-sm mgr-lg
+
+2：改变颜色的 Class
+   在 Checkbox中设置下面class
+    mgc-primary mgc-info mgc-success mgc-warning mgc-danger
+
+   在 Radio Button中设置下面
+    mgr-primary mgr-info mgr-success mgr-warning mgr-danger
+
+james 改进：
+1：新增一个 mgc-tiny 样式
+2：margin: 4px 0 0 0; 改成了 margin: 0 0 -3px 0; 否则在 bootstrap 中的位置不对
+3：重新定义 .mgc:checked:after，各加大 2px，否则勾选的勾在 bootstrap 中样式不对
+4：mgc-switch 的 focus 的 outline 改为 none，在 bootstrap 下会有很难看的效果
+5：mgc、mgc-switch 添加 cursor: pointer 样式

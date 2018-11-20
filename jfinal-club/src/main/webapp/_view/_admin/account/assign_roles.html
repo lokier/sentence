@@ -1,0 +1,87 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		账户管理 / 分配角色
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-account-info margin-top-30">
+			<img src="/upload/avatar/#(account.avatar)">
+			<span>#(account.nickName)</span>
+		</div>
+
+		<div class="jfa-table-box margin-top-20">
+			<table class="table table-bordered table-hover margin-bottom-10">
+				<thead>
+
+				</thead>
+				<tbody>
+				#for(x : roleList)
+				<tr>
+					<td style="width: 100px; text-align: center;">
+						<input data-account-id="#(account.id)"
+							   data-role-id="#(x.id)"
+							   #if(x.assigned) checked #end
+							   type="checkbox" class="mgc-switch mgc-tiny">
+					</td>
+
+					<td>#(x.name)</td>
+				</tr>
+				#end
+				</tbody>
+			</table>
+		</div>
+
+		<div class="jfa-rold-assign-msg margin-top-20">
+			点亮左侧开关分配角色，同一账号可分配多个角色
+		</div>
+
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style>
+	.jfa-account-info,
+	.jfa-table-box,
+	.jfa-rold-assign-msg {
+		width: 500px;
+		margin-left: 50px;
+	}
+	.jfa-rold-assign-msg {
+		margin-left: 55px;
+	}
+
+	.jfa-account-info img {
+		height: 45px;
+		width: 45px;
+
+		border-radius: 3px;
+		border: 1px solid #d6d6d6;
+		margin-right: 15px;
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		initMagicInput(prepareAction);
+	});
+
+	function prepareAction($this, state) {
+		return {
+			url: state ? "/admin/account/addRole" : "/admin/account/deleteRole",
+			data : {
+				accountId: $this.data("account-id"),
+				roleId: $this.data("role-id")
+			}
+		}
+	}
+</script>
+#end
+

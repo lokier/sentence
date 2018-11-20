@@ -1,0 +1,64 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		账户管理 / 查看后台账户
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-table-box margin-top-30">
+			<table class="table table-bordered table-hover margin-bottom-10">
+				<thead>
+				<tr>
+					<th>角色</th>
+					<th>昵称</th>
+					<th>accountId</th>
+					<th>用户名</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				#for(x : adminList)
+				<tr>
+					<th scope="row">#(x.name)</th>
+					<td>#(x.nickName)</td>
+					<td>#(x.accountId)</td>
+					<td>#(x.userName)</td>
+					<td class="jfa-operation-button">
+						<a href="/user/#(x.accountId)" target="_blank">
+							<i class="fa fa-eye" title="查看"></i>
+						</a>
+
+						<a data-pjax href="/admin/account/assignRoles?id=#(x.accountId)">
+							<i class="fa fa-user" title="分配角色"></i>
+						</a>
+
+					</td>
+				</tr>
+				#end
+				</tbody>
+			</table>
+
+			<div class="margin-top-20" style="font-size:16px;">
+				注：上表显示 account_role 表中所有数据，账号与角色是多对多关系，因此上表中的相同账号和角色可重复出现
+			</div>
+
+		</div>
+
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+	});
+</script>
+#end
+

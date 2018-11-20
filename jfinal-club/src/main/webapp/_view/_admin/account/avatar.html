@@ -1,0 +1,163 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		账户管理 / 更换头像
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<!-- 工作区域 -->
+		<div id="working_box" class="avatar-working-box">
+			<!-- 图像上传表单区域 -->
+			<div class="avatar-upload-box">
+				<form id="avatar_upload_form" action="/admin/account/uploadAvatar" method="POST" enctype="multipart/form-data">
+
+					<input type="hidden" name="accountId" value="#(account.id)" />
+
+					<table width="100%">
+						<tr>
+							<td style="width: 30%; text-align: right; padding-right: 15px;">
+								图片文件(不能超过1024k)：
+							</td>
+							<td style="width: 30%;">
+								<input type="file" name="avatar" style="width: 90%;" />
+							</td>
+							<td style="text-align: left;">
+								<input id="upload_btn" type="submit" value="上传"/>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+
+			<!-- 图像预览与裁切区域 -->
+			<div class="avatar-preview-crop-box">
+					<img id="jcrop_target"  />
+			</div>
+
+			<!-- 图像裁切参数保存区域 -->
+			<div id="avatar_save_box" class="avatar-crop-data-save-box">
+				<form id="avatar_save_form" action="/admin/account/saveAvatar" method="post">
+
+					<input type="hidden" name="accountId" value="#(account.id)" />
+
+					<input type="hidden" id="x" name="x" />
+					<input type="hidden" id="y" name="y" />
+					<input type="hidden" id="width" name="width" />
+					<input type="hidden" id="height" name="height" />
+					<input id="avatar_save_btn" type="submit" value="保存选中区域" style="padding:2px 10px; font-weight:bold;"/>
+				</form>
+			</div>
+		</div><!-- 工作区域结束 -->
+
+	</div>
+</div>
+
+<style type="text/css">
+	#upload_btn {
+		font-size: 18px;
+		font-weight:bold;
+		padding:0 11px 0 9px;
+	}
+</style>
+
+<script type="text/javascript">
+	// 使用 ajax form 上传文件
+	$(document).ready(function() {
+		// ajaxForm 可以是无参或者一个参数，参数只能是一个回调或json options，支持 jquery $.ajax的所有参数
+		$("#avatar_upload_form").ajaxForm({
+			dataType: "json",
+			// 在对表单域进行序列化之前回调
+			beforeSerialize: function($form, options) {
+				// 用于操作ueditor这样的编辑器向隐藏域写入数据
+				// editor.sync();
+				//获取html内容
+				// var html = ue.getContent();
+				//获取纯文本内容，返回: hello
+				// var txt = ue.getContentTxt();
+				// target.val(html);    // 设置到 hidden 域
+			},
+			// 这里可做一些 validator的工作，必须要返回 false 才不会提交表单
+			beforeSubmit: function(formData, jqForm, options) {
+				// var queryString = $.param(formData);
+				// var formElement = jqForm[0];
+
+				var uploadBtn = $("#upload_btn");
+				uploadBtn.attr("disabled", true);
+				uploadBtn.val("正在上传，请稍候...");
+				return true;
+			},
+			success: function(ret) {
+				if(ret.state == "ok") {
+					var jcropTarget = $("#jcrop_target");
+					jcropTarget.attr("src", ret.avatarUrl + "?r="+Math.random());
+					jcropTarget.show();
+					callJcrop();
+					$("#upload_btn").hide();
+					$("#avatar_save_box").show();
+				} else {
+					showFailMsg(ret.msg);
+					var uploadBtn = $("#upload_btn");
+					uploadBtn.val("上传");
+					uploadBtn.attr("disabled", false);
+				}
+			},
+			error: function(ret) {  // 仅做为示例，只要后端是 status 200，就不会调用
+				showFailMsg(ret.msg);
+			}
+		});
+	});
+
+	function callJcrop() {
+		$('#jcrop_target').Jcrop({
+			setSelect: [ 30, 30, 250, 250 ],
+			minSize:[30,30],
+			aspectRatio: 1,
+			onSelect: updateCoords,
+			onChange: updateCoords
+		});
+	}
+	function updateCoords(c){
+		$('#x').val(c.x);
+		$('#y').val(c.y);
+		$('#width').val(c.w);
+		$('#height').val(c.h);
+	}
+
+	// 使用 ajax form 提交图像裁剪坐标
+	$(document).ready(function() {
+		$("#avatar_save_form").ajaxForm({
+			dataType: "json",
+			beforeSubmit: function(formData, jqForm, options) {
+			},
+			success: function(ret) {
+				$("#working_box").hide();
+				if (ret.state == "ok") {
+					// showOkMsg(ret.msg);
+					layer.alert(
+						"更换头像成功，按确定返回列表页"
+						, {icon: 6, offset: "140px"}
+						, function(index) {
+							location.href = "/admin/account?p=#(p ?? 1)";
+							layer.close(index);
+						}
+					);
+				} else {
+					showFailMsg(ret.msg);
+				}
+			},
+			error: function(ret) {
+				showFailMsg(ret.msg);
+			}
+		});
+	});
+
+</script>
+#end

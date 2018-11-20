@@ -1,0 +1,93 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		分享管理 / 回复管理
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-reply-head">
+			<span>
+				标题：<a href="/share/#(share.id)" target="_blank">#escape(share.title)</a>
+			</span>
+		</div>
+
+		<div class="jfa-table-box">
+			<table class="table table-bordered table-hover margin-bottom-10">
+				<thead>
+				<tr>
+					<th>id</th>
+					<th>回复人</th>
+					<th>回复时间</th>
+					<th>内容摘要</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				#for(x : shareReplyList)
+				<tr>
+					<th scope="row">
+						#(x.id)
+					</th>
+					<td>
+						<a href="/user/#(x.accountId)" target="_blank">#(x.nickName)</a>
+					</td>
+					<td>
+						#date(x.createAt)
+					</td>
+					<td>
+						#escape(x.content)
+					</td>
+
+					<td class="jfa-operation-button">
+						<a data-show-reply-content
+						   data-url="/admin/share/getReply?replyId=#(x.id)"
+
+						   href="javascript:void(0);">
+							<i class="fa fa-eye" title="查看"></i>
+						</a>
+
+						<a data-delete-reply
+						   data-url="/admin/share/deleteReply?replyId=#(x.id)">
+							<i class="fa fa-trash" title="删除"></i>
+						</a>
+
+					</td>
+				</tr>
+				#else
+				<tr>
+					<td colspan="5" style="text-align:center; font-size: 18px;">暂无回复</td>
+				</tr>
+				#end
+				</tbody>
+			</table>
+
+
+		</div>
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("a[data-show-reply-content]").on("click", showReplyContent);
+		$("a[data-delete-reply]").on("click", deleteReply);
+	});
+</script>
+#end
+
+
+
+
+
+
+
+

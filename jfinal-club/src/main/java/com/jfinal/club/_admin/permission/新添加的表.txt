@@ -1,0 +1,10 @@
+
+
+
+role(id, name)
+permission(id, actionKey, controller, remark)
+
+account_role(accountId, roleId)
+role_permission(roleId, permissionId)
+
+
