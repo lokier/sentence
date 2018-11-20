@@ -1,0 +1,104 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		项目管理
+	</div>
+	<div class="jfa-search-box">
+		<form action="/admin/project/search">
+			### <input class="jfa-search" type="text" name="keyword" placeholder="搜索" >
+		</form>
+	</div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-toolbar">
+			<a class="btn btn-primary btn-sm" href="/admin/project/add">
+				<i class="fa fa-plus"></i>
+				创建项目
+			</a>
+		</div>
+
+		<div class="jfa-table-box margin-top-30">
+			<table class="table table-bordered table-hover margin-bottom-10">
+				<thead>
+				<tr>
+					<th>id</th>
+					<th>标题</th>
+					<th>名称</th>
+					<th>创建时间</th>
+					<th>锁定</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				#for(x : projectPage.getList())
+				<tr>
+					<th scope="row">#(x.id)</th>
+					<td>
+						<a href="/project/#(x.id)" target="_blank" >#(x.title)</a>
+					</td>
+					<td>#(x.name)</td>
+					<td>#date(x.createAt)</td>
+
+					<td>
+						#set(locked = x.report >= com.jfinal.club.common.model.Project::REPORT_BLOCK_NUM)
+						<input data-id="#(x.id)"
+							   #if(locked) checked #end
+
+							   type="checkbox" class="mgc-switch mgc-tiny">
+					</td>
+
+					<td class="jfa-operation-button">
+
+						#permission("/admin/project/edit")
+						<a href="/admin/project/edit?id=#(x.id)&p=#(projectPage.pageNumber)">
+							<i class="fa fa-pencil" title="修改"></i>
+						</a>
+						#end
+
+						#permission("/admin/project/delete")
+						<a data-delete
+						   data-title="#escape(x.title)"
+						   data-action="/admin/project/delete?id=#(x.id)">
+							<i class="fa fa-trash" title="删除"></i>
+						</a>
+						#end
+					</td>
+				</tr>
+				#end
+				</tbody>
+			</table>
+
+			<div>
+				#@adminPaginate(projectPage.pageNumber, projectPage.totalPage, "/admin/project?p=")
+			</div>
+		</div>
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		initMagicInput(prepareAction);
+	});
+
+	function prepareAction($this, state) {
+		return {
+			url: state ? "/admin/project/lock" : "/admin/project/unlock",
+			data : {
+				id: $this.attr("data-id")
+			}
+		}
+	}
+</script>
+#end
+
+
+

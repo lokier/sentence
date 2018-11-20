@@ -1,0 +1,70 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		角色管理
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-toolbar">
+			<a class="btn btn-primary btn-sm" href="/admin/role/add">
+				<i class="fa fa-plus"></i>
+				创建角色
+			</a>
+		</div>
+
+		<div class="jfa-table-box">
+			<table class="table table-bordered table-hover margin-bottom-10">
+				<thead>
+				<tr>
+					<th>id</th>
+					<th>名称</th>
+					<th>创建时间</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				#for(x : rolePage.getList())
+				<tr>
+					<th scope="row">#(x.id)</th>
+					<td>#(x.name)</td>
+					<td>#date(x.createAt)</td>
+					<td class="jfa-operation-button">
+						<a href="/admin/role/edit?id=#(x.id)&p=#(rolePage.pageNumber)">
+							<i class="fa fa-pencil" title="修改"></i>
+						</a>
+
+						<a data-delete
+						   data-title="#escape(x.name)"
+						   data-action="/admin/role/delete?id=#(x.id)">
+							<i class="fa fa-trash" title="删除"></i>
+						</a>
+
+						<a data-pjax href="/admin/role/assignPermissions?id=#(x.id)">
+							<i class="fa fa-toggle-on" title="分配权限"></i>
+						</a>
+					</td>
+				</tr>
+				#end
+				</tbody>
+			</table>
+
+			<div>
+				#@adminPaginate(rolePage.pageNumber, rolePage.totalPage, "/admin/role?p=")
+			</div>
+		</div>
+
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<script type="text/javascript">
+</script>
+#end
+

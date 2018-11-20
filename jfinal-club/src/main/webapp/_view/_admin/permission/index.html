@@ -1,0 +1,112 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		权限管理
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-toolbar">
+			<a data-toolbar
+			   data-action="/admin/permission/sync"
+			   class="btn btn-primary btn-sm" >
+
+				<i class="fa fa-refresh"></i>
+				一键同步
+			</a>
+		</div>
+
+		<div class="jfa-table-box">
+			<table class="table table-bordered table-hover margin-bottom-10">
+				<thead>
+				<tr>
+					<th>id</th>
+					<th>actionKey</th>
+					<th>controller</th>
+					<th>备注</th>
+					<th>操作</th>
+				</tr>
+				</thead>
+				<tbody>
+				#for(x : permissionPage.getList())
+				<tr>
+					<th scope="row">#(x.id)</th>
+
+					### 标记为 removed 值的 permission 显示中划线与红色字体，提示用户可以删掉
+					<td #if(x.removed) class="removed-action-key" #end >
+						#(x.actionKey)
+					</td>
+
+					<td>#(x.controller)</td>
+					<td>#(x.remark)</td>
+					<td class="jfa-operation-button">
+
+						#permission("/admin/permission/edit")
+						<a href="/admin/permission/edit?id=#(x.id)&p=#(permissionPage.pageNumber)">
+							<i class="fa fa-pencil" title="修改"></i>
+						</a>
+						#end
+
+
+						#role("权限管理员", "CEO", "CTO")
+						<a data-delete
+						   data-title="#escape(x.actionKey)"
+						   data-action="/admin/permission/delete?id=#(x.id)">
+							<i class="fa fa-trash" title="删除"></i>
+						</a>
+						#end
+
+					</td>
+				</tr>
+				#end
+				</tbody>
+			</table>
+
+			#if(hasRemovedPermission)
+			<div class="removed-notes">
+				注：红色字体的 actionKey 表示该 action 已在 Controller 中被删除，
+				点击右侧删除按钮无死角清除数据库中与之有关的所有数据
+			</div>
+			#end
+
+			<div>
+				#@adminPaginate(permissionPage.pageNumber, permissionPage.totalPage, "/admin/permission?p=")
+			</div>
+		</div>
+
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+	.removed-action-key {
+		text-decoration: line-through;
+		color: red;
+	}
+
+	.removed-notes {
+		margin: 20px 0 5px 0;
+		color: red;
+		font-size: 16px;
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".jfa-toolbar").on("click", "a[data-toolbar]", synchronizePermission);
+	});
+
+	function synchronizePermission(event) {
+		event.preventDefault();
+		var action = $(this).attr("data-action");
+		ajaxAction(action);
+	}
+</script>
+#end
+

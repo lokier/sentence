@@ -1,0 +1,86 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		权限管理 / 修改
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+		<form class="form-horizontal margin-top-30" id="myArticleForm" action="/admin/permission/update" method="post">
+
+			<input type="hidden" name="permission.id" value="#(permission.id)" />
+
+			<div class="form-group">
+				<label class="col-sm-4 control-label">actionKey</label>
+				<div class="col-sm-8">
+					<input disabled type="text" class="form-control" value="#(permission.actionKey)">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-4 control-label">controller</label>
+				<div class="col-sm-8">
+					<input disabled type="text" class="form-control" value="#(permission.controller)">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-4 control-label">备注</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" name="permission.remark" value="#(permission.remark)">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-offset-4 col-sm-8">
+					<input class="btn btn-primary" type="submit" value="提交" />
+				</div>
+			</div>
+		</form>
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+	#myArticleForm {
+		width: 680px;
+	}
+
+	.form-group {
+		margin-bottom: 25px;
+	}
+
+	.jfa-content label {
+		line-height: 1;
+		vertical-align: baseline;
+		color: #23527c;
+		font-size: 20px;
+		font-weight: normal;
+		margin-bottom: 8px;;
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#myArticleForm").ajaxForm({
+			dataType: "json"
+			, beforeSubmit: function(formData, jqForm, options) {}
+			, success: function(ret) {
+				if (ret.state == "ok") {
+					location.href = "/admin/permission?p=#(p ?? 1)";
+				} else {
+					showFailMsg(ret.msg);
+				}
+			}
+			, error: function(ret) {alert(ret.statusText);}
+			, complete: function(ret) {} 	      // 无论是 success 还是 error，最终都会被回调
+		});
+	});
+</script>
+
+#end

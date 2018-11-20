@@ -1,0 +1,42 @@
+
+<a class="jfa-main-menu" href="/admin" home="true" style="padding-left:15px;">
+	<i class="left-icon fa fa-home fa-lg"></i>首页
+</a>
+
+
+<a class="jfa-main-menu" home="false">
+    <i class="left-icon fa fa-file-o"></i>
+    内容管理
+    <i class="right-icon fa fa-angle-down fa-lg"></i>
+</a>
+<ul class="jfa-sub-menu">
+
+	### 演示 permission 指令 "细粒度" 控制菜单，在后台管理调整账号的权限时，这里的控制会自动生效
+	#permission("/admin/project")
+    	<li><a href="/admin/project">项目管理</a></li>
+    #end
+    
+    <li><a href="/admin/share">分享管理</a></li>
+    <li><a href="/admin/feedback">反馈管理</a></li>
+    
+    ### 演示 role 指令 "细粒度" 控制菜单，在后台管理调整账号的角色时，这里的控制会自动生效
+    #role("超级管理员")
+    	<li><a href="/admin/doc">文档管理</a></li>
+    #end
+    
+</ul>
+
+### 演示 role 指令 "大粒度" 控制菜单，在后台管理中调整账号的角色时，这里的控制会自动生效
+#role("权限管理员", "CEO", "CTO")
+<a class="jfa-main-menu" home="false">
+    <i class="left-icon fa fa-user-o"></i>
+    权限管理
+    <i class="right-icon fa fa-angle-down fa-lg"></i>
+</a>
+<ul class="jfa-sub-menu">
+    <li><a href="/admin/account">账户管理</a></li>
+    <li><a href="/admin/role">角色管理</a></li>
+    <li><a href="/admin/permission">权限管理</a></li>
+</ul>
+#end
+

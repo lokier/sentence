@@ -1,0 +1,105 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		角色管理 / 分配权限
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-role-info margin-top-30">
+			<div>
+				正在为
+				<span>#(role.name)</span>
+				分配权限,	点亮左侧开关分配权限给当前角色
+			</div>
+		</div>
+
+		<div class="container-flux">
+			#set(n = 0)
+			#for(mapItem : permissionMap)
+
+				#if(n % 2 == 0)<div class="row">#end
+
+					#@printTable()
+					#set(n = n + 1)
+
+				#if(n % 2 == 0)</div>#end
+			#end
+		</div>
+
+
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style>
+	.jfa-role-info {
+		margin: 30px 0 20px 15px;
+		font-size: 18px;
+	}
+	.jfa-role-info span {
+		font-weight: 500;
+		color: red;
+	}
+
+	.row {
+		margin: 0 0 25px 0;
+	}
+
+	.table {
+		min-width: 350px;
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		initMagicInput(prepareAction);
+	});
+
+	function prepareAction($this, state) {
+		return {
+			url: state ? "/admin/role/addPermission" : "/admin/role/deletePermission",
+			data : {
+				roleId: $this.data("role-id"),
+				permissionId: $this.data("permission-id")
+			}
+		}
+	}
+</script>
+#end
+
+
+#define printTable()
+<div class="col-md-6">
+	<table class="table table-bordered table-hover margin-bottom-10">
+		<thead>
+		<tr>
+			<th colspan="3">#(mapItem.key)</th>
+		</tr>
+		</thead>
+		<tbody>
+
+		#for(x : mapItem.value)
+		<tr>
+			<td style="width: 60px; text-align: center;">
+				<input data-role-id="#(role.id)"
+					   data-permission-id="#(x.id)"
+					   #if(x.assigned) checked #end
+					   type="checkbox" class="mgc-switch mgc-tiny">
+			</td>
+
+			<td style="width: 240px">#(x.actionKey)</td>
+			<td>#(x.remark)</td>
+		</tr>
+		#end
+
+		</tbody>
+	</table>
+</div>
+#end

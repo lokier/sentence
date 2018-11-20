@@ -1,0 +1,118 @@
+#@adminLayout()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		文档管理
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+		<div class="jfa-toolbar">
+			<a class="btn btn-primary btn-sm" href="/admin/doc/add">
+				<i class="fa fa-plus"></i>
+				创建文档
+			</a>
+		</div>
+
+		<div class="jfa-table-box margin-top-30">
+			<table class="table table-bordered table-hover margin-bottom-10">
+				<thead>
+					<tr>
+						<th style="padding-left: 20px;">标题</th>
+						<th>更新时间</th>
+						<th>发布</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+
+				<tbody>
+				#for(x : docList)
+					#@createRow(x)
+					#for(y : x.subDocList)
+						#@createRow(y)
+					#end
+				#end
+				</tbody>
+
+			</table>
+		</div>
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		initMagicInput(prepareAction);
+	});
+
+	function prepareAction($this, state) {
+		return {
+			url: state ? "/admin/doc/publish" : "/admin/doc/unpublish",
+
+			// 与其它模块不同，这里传入了两个参数
+			data : {
+				mainMenu: $this.attr("data-mainMenu"),
+				subMenu: $this.attr("data-subMenu")
+			}
+		}
+	}
+</script>
+#end
+
+
+#define createRow(doc)
+<tr>
+
+	#if (doc.subMenu == 0)
+	### 一级菜单
+	<td style="padding-left: 20px;width:68%">
+		<a href="javascript:void(0);" style="cursor:default; text-decoration: none;">
+			#(doc.mainMenu)、#(doc.title)
+		</a>
+	</td>
+	#else
+	### 二级菜单
+	<td style="padding-left: 42px;">
+		<a href="/doc/#(doc.mainMenu)-#(doc.subMenu)" target="_blank">
+			#(doc.mainMenu).#(doc.subMenu)、#(doc.title)
+		</a>
+	</td>
+	#end
+
+	<td>#date(doc.updateAt)</td>
+
+	<td>
+		#set(publishYes = com.jfinal.club.common.model.Document::PUBLISH_YES)
+		<input data-mainMenu="#(doc.mainMenu)"
+			   data-subMenu="#(doc.subMenu)"
+
+			   #if(doc.publish == publishYes) checked #end
+
+			   type="checkbox" class="mgc-switch mgc-tiny">
+	</td>
+
+	<td class="jfa-operation-button">
+		<a href="/admin/doc/edit?mainMenu=#(doc.mainMenu)&subMenu=#(doc.subMenu)">
+			<i class="fa fa-pencil" title="修改"></i>
+		</a>
+
+		<a data-delete
+		   data-title="#escape(doc.title)"
+		   data-action="/admin/doc/delete?mainMenu=#(doc.mainMenu)&subMenu=#(doc.subMenu)">
+			<i class="fa fa-trash" title="删除"></i>
+		</a>
+
+	</td>
+</tr>
+#end
+
+
+
+

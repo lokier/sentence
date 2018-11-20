@@ -1,0 +1,179 @@
+jfinal club 1.6 相对 1.5 版本的主要变化：
+
+1：jfinal 升级到 3.5，pom.xml 中的 JDK 编译级别升为 1.8
+
+2：jetty-server 升级到 jetty-server-2018.11，该版本的 JDK 最低要求为 1.8
+
+3：JFinalClubConfig 中配置 me.setInjectDependency(true) 启用最新的 Aop
+   模块功能，免去业务层 AOP 必须手动 enhance 的步骤，免去业务层维护单例的样板式
+   代码，例如:
+       public static AccountService me = new AccountService();
+  
+  注意：为了节省改动时间，现只先修改了后台管理模块的 AOP 使用方式。
+       此外，对于工具类的业务使用原有的 public static Xxx me 模式
+       比 @Inject 更加方便，同理，对于全局多处依赖的业务也如此，
+       例如：AccountService
+
+4：添加文档管理模块，方便同学们使用 jfinal club 二次开发属于自己的带文档的社区
+
+5：添加 @Remark 注解用于一键同步时向 permission 表的 remark 字段添加内容(该字段有内容时跳过)
+   详细用法请见 PermissionAdminService.java
+
+6：账户管理添加 "查看后台账户/管理员" 功能，便于查看后台都有哪些账户被分配了角色，在对账户误操作分配了角色时，
+   也便于取消角色分配
+
+7：模板文件 "/_view/admin/common/_menu.html" 之中添加了 #permission 指令 "细粒度" 
+   控制菜单的示例,以及 #role 指令 "细粒度" 控制菜单的示例。缘于很多同学在问如何 "细粒度"
+   控制菜单权限的问题，jfinal club 细粒度控制菜单不需要添加后台代码，只需要事先在需要控制
+   的菜单那里用 #permission 与 #role 指令事先埋好点即可，权限控制的行为与后端完全一致，
+   前后端权限使用同一套逻辑，避免发生前后权限逻辑的死角、遗漏、不一致性
+
+8：pom.xml 中添加 jetty-maven-plugin 插件，方便习惯于使用该插件的人启动并开发项目，启动项目只需
+   在控制台输入： mvn jetty:run
+   这种启动开发项目的方式也支持热加载，使用该启动方式可以去掉对 jetty-server 项目的依赖。
+   相对于 jfinal 官方提供的启动方式控制台输出信息较多较杂，启动速度慢，绝大多数情况建议
+   使用 jfinal 官方的启动方式
+
+9：pom.xml 中添加 slf4j-nop 依赖避免在开发阶段启动项目时输出的 INFO 干扰信息，控制台从此特别干净清爽
+
+10：reply.html 页面的 title、content 的输出使用 #escape() 指令，避免出现页面格式混乱
+
+11：左侧首页菜单图标改为 fa-home，美观且符合度更高
+
+12：BaseController 中添加 _clear_()
+
+13：BaseController 中的 @Before(NotAction.class) 改用 @NotAction
+
+14：启动方法统一使用 JFinal.start("src/main/webapp", 80, "/", 5)，jfinal 3.5 已支持 IDEA
+
+15：删掉 MyClassPathSourceFactory、MyClassPathSource，jfinal 3.5 已改进过 ClassPathSource
+
+16：删除 com.jfinal.club.common.aop 包，改为使用最新版本 jfinal 3.5 的 aop
+
+17：jdbcUrl 配置中添加 useSSL=false，避免使用高版本 mysql 时，控制台输出干扰开发的无用 INFO 信息
+
+18：删除 JFinalClubConfig 中用于 IDEA 的启动代码以及相关所有注释说明，jfinal 3.5 已支持 IDEA 以及
+    所有 eclipse 版本
+
+19：pom.xml 中的 maven-compiler-plugin 插件参数添加 -parameters 配置，便于二次开发中使用 action 带参
+    eclipse 相关编译配置见文档：http://www.jfinal.com/doc/3-3
+
+---------------------------------------------------
+
+jfinal club 1.5 相对 1.4 版本的主要变化：
+
+1：项目管理、分享管理、反馈管理添加创建功能
+
+2：分享管理、反馈管理模块添加回复管理功能
+
+3：账户管理添加更换头像功能
+
+4：权限管理的权限列表识别不存在的 action，并给出操作提示
+
+5：授权管理添加 AdminAuthKit，支持 #if(hasPermission(...) ... #else ... #end 以及
+#if(hasRole(...) ... #else ... #end
+
+6：改进 ImageKit，移除对于 com.sun 包下的图片处理 API 依赖，更好支持 jdk 7/8
+
+7：将 Switchery 组件换成 magic input 组件
+   a：在 __admin_layout.html 中引入 magic input 的 css 文件，删除 Switchery 的 css 与 js 引用
+   b：升级 jfinal-admin.js 中相关的 init 方法
+   c：将 checkbox 组件的 class="js-switch" 样式改为 class="mgc-switch mgc-tiny"
+      并将 initSwitchery() 方法名改为 initMagicInput()，并去掉第二个参数
+
+8：修改页面提交以后返回到当前记录所在的页，老版本总是返回到第一页
+
+9：RoleDirective.hasRole(...) PermissionDirective.hasPermission(...) 重构至 AdminAuthService
+
+10：RoleDirective、PermissionDirective 中获取 loginAccount 的方式改为从 scope 中获取
+
+11：重构 PermissionDirective、RoleDirective，代码更简洁
+
+12：删掉 admin_role.sql 与 admin_permission.sql ，其中的 sql 转至 admin_auth.sql
+
+13：删掉 all_sqls.sql 中对 admin_role.sql 与 admin_permission.sql 的 #include 包含
+
+14：角色管理的 add、edit、_form 三个页面合并为 add_edit.html
+
+15：UploadController 中的 renderJson(ret) 改为 render(new JsonRender(ret).forIE())
+   防止 ueditor 图片上传功能在 IE 下出现文件下载现象
+
+16：$.pjax.defaults.timeout = 1500; 改为 5000
+
+17：后台管理菜单颜色的  #ffffffb3 改为 hsla(0,0%,100%,.7)，支持老版本 IE
+
+18：其它打磨
+
+升级建议：由于 jfinal club 1.5 打磨的地方比较多、比较细、也很重要，升级建议以 jfinal club 1.5 为基础，
+        将已经基于 jfinal club 1.4 做的项目中的自己写的代码重新整合到 jfinal club 1.5 中去。
+        二次开发产生的 js、css 代码要写到新建的文件中去，然后在 layout 中引用，这样有利于将来升级
+
+        此外，permission 表中的内容有所增加，升级完以后需要进入权限管理进行"一键同步"，最后按个人需求
+        为角色分配相应的权限即可
+
+---------------------------------------------------
+
+
+jfinal club 1.4 相对 1.3 版本的变化：
+
+1：升级到 jfinal 3.4
+
+2：后台管理功能全部重写，添加内容管理、账户管理、角色管理、权限管理等功能
+
+3：后台管理界面全部重写，手写骨架，右下角内容区域使用 bootstrap 3，方便进行二次开发
+   二次开发基本只需要照猫画虎，添加右下角内容区域代码
+
+4：添加 #role #permission 指令，用于在界面控制权限
+
+5：其它一些细节变化将在直播中讲解，会有更深刻的了解
+
+
+注意：后台管理功能看似简单，其实里头很多细节，采用极简设计，尽可能消除学习成本和二次开发成本
+      后台管理源代码与功能将会在直播中详细讲解
+
+
+---------------------------------------------------
+
+
+jfinal club 1.3 相对 1.2 版本的变化：
+
+1：升级到 jfinal 3.3
+
+2：JFinalClubConfig 中加载配置文件由 try catch 改为使用 PropKit.appendIfExists(...)
+
+3：ShareController、FeedbackController、MessageController、NewsFeedController
+    中的 renderToString(...) 的模板去掉路径
+
+4：sql 管理功能使用 ClassPathSourceFactory 来做，从类路径里头加载
+
+5：mysql 驱动升级到 5.1.44 版本
+
+注意：jf club 1.2 已经处理过 Ret 类的升级，从 1.2 升级到 1.3 只需要关注上述五条
+    doc 目录下面的三个 png 图片文件，仅用于指导更老的版本升级到 1.2 或 1.3
+
+---------------------------------------------------
+
+
+jfinal club 1.2 相对 1.1 版本的变化：
+1：jfinal 升级到 3.2 版本
+2：文件上传组件 cos 升级到 2017.5 版本
+3：UploadController 捕获 ExceededSizeException 异常，更好处理上传文件长度超出范围
+4："/upload" 路由改为 "/common/upload"，修改 ueditor 相关配置指向新路由。此改进主要为了 nginx 配置方便
+       避免与 "webapp/upload" 的配置产生影响，减少 nginx 配置量
+5：查找替换 html 文件中的 22 处 ret.isOk 为 ret.state == "ok"
+6：查找替换 html 文件中的 4 处 ret.isFail 为 ret.state == "fail"
+7：查找替换 js 文件中的 11 处 ret.isOk 为 ret.state == "ok"
+
+
+建议大家升级自己项目 Ret 的方式为：
+1：利用查找替换功能将 html 与 js 中的 ret.isOk 替换为 ret.state == "ok"
+2：利用查找替换功能将 html 与 js 中的 ret.isFail 替换为 ret.state == "fail"
+
+
+如果项目未涉及到 Ret 生成的 json 数据则不需要处理，java 代码中的
+ret.isOk() ret.isFail() 行为并无变化，不需要处理
+
+
+如果觉得上述升级方式比较麻烦，可以在项目启动时调用一次 Ret.setToOldWorkMode()
+可以继续沿用老版本的工作模式，这种升级方式比较适合不需要怎么改动的老项目
+

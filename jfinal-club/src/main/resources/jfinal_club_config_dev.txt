@@ -1,0 +1,22 @@
+#主要配置
+jdbcUrl=jdbc:mysql://localhost:3306/jfinal_club?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
+user=root
+password=1234
+devMode=true
+engineDevMode=true
+
+
+# 邮件发送账号，用于激活注册账号与找回密码  ----------------------------
+emailServer=test.com
+fromEmail=no-reply@test.com
+emailPass=yourPassword
+
+# cron4j 任务调度配置  ------------------------------------------
+# pvUpdate 每小时更新一次 project_page_view、share_page_view、feedback_page_view
+cron4j=pvUpdate
+pvUpdate.cron=0 * * * *
+pvUpdate.class=com.jfinal.club.common.pageview.PageViewUpdateTask
+pvUpdate.enable=true
+
+
+

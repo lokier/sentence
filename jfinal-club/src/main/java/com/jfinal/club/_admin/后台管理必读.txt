@@ -1,0 +1,58 @@
+0：jfinal club 1.4 新添加了如下四张表：
+	role(id, name)
+	permission(id, actionKey, controller, remark)
+	account_role(accountId, roleId)
+	role_permission(roleId, permissionId)
+
+	其中 role、permission 与老版本的 account 构成权限管理功能的三张主表，
+	而 account_role、role_permission 建立这三张主表间的关联
+
+
+1：权限管理模块对左侧菜单进行管理，可以参考 "/_view/_admin/common/_menu.html"
+   中的  #role("权限管理员", "CEO", "CTO") 用法，只需要先用这种式方式预先
+   安排好哪些角色可以访问哪些菜单，然后就可以通过为 account 配置 role 的方式
+   来配置菜单权限了，这种模式比通过再创建 menu 表要简单方便
+
+   此外，也可以通过 #permission(...) 更细粒度的控制每一个菜单，一般用 #role 指令即可
+
+
+2：权限管理模块对界面操作按钮之类的组件细粒度的控制可以参考 "/_view/_admin/project/index.html"
+   中的 #permission("/admin/project/delete") 用法，只需要先用这种方式预先
+   安排好哪些权限用于控制访问哪些按钮或组件，然后就可以通过为 account 配置权限的
+   方式来细粒度控制按纽、组件了
+
+
+3：share、feedback 的回复管理下一版本添加：贴子 title + table 结构
+
+
+4：头部导航已经做过搜索的界面，一直对美观不满意，留到下版本做进去，
+   搜索栏样式参考：https://fontawesome.com/v4.7.0/icons/
+
+
+5：项目整体结构采用先划分模块，然后在模块内部再分层的方式，便于向大型系统进化，
+   市面上很多先划分层次，然后再划分模块的方式远没有此方式适应大型系统的开发，
+   此划分方式，还有利于在未来将模块独立拆分成小型服务，再以微服务的方式做分布式
+   而先分层再分模块的方式则无法方便支持
+
+
+6：后台管理源码的包名以及视图文件的目录名以下划线打头 "_"，是为了让其始终排列在
+   固定的位置，便于开发过程中快速定位，提升开发效率。否则后台管理模块的位置
+   会不断变化，例如，如果存在 about 包名，则 admin 会排在其之后
+
+
+7：视图文件基础路径以下划线打头 "_"，是为了将其排在 webapp 的最前面，便于快速
+   定位，提升开发效率，否则该目录会被夹杂在 assets、WEB-INF、upload 等目录之间
+   由于 jfinal 有 baseViewPath 配置，所以此安排不会给开发带来麻烦
+
+
+8：后台管理并没有专用的登录界面，一切针对于后台管理登录界面的黑客攻击根本找不到这个界面
+   一切对于该界面的寻找必将返回 404 页面，没有专用的管理账户表，管理员账号存在于普通
+   账号之中。无招才是更好的招。
+
+
+总之：jfinal-club 值得讨论和学习的细节极多，上述仅为冰山一角，大家一定要加入俱乐部
+     收获所有福利  http://www.jfinal.com/club
+
+
+
+

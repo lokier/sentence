@@ -1,0 +1,98 @@
+#@adminLayout()
+
+#define main()
+### isAdd 表示创建，isEdit 表示修改
+#set(isAdd = feedback == null ? true : false, isEdit = !isAdd)
+
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		反馈管理 / #(isAdd ? "创建" : "修改")
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+		<form class="clearfix margin-top-25" id="myArticleForm" action="/admin/feedback/#(isAdd ? 'save' : 'update')" method="post">
+
+			#if (isEdit)
+			<input type="hidden" name="feedback.id" value="#(feedback.id)" />
+			#end
+
+			<div class="form-group margin-bottom-20">
+				<label>反馈标题</label>
+				<input type="text"  class="form-control" name="feedback.title" value="#(feedback.title??)" placeholder="反馈文章标题" />
+			</div>
+
+			<div class="form-group margin-bottom-20">
+				<label>关联项目</label>
+				<select class="form-control" name="feedback.projectId" class="related-project-name">
+					<option >请选择</option>
+					#for(x : projectList)
+					#if(x.id == feedback.projectId??)
+					<option value="#(x.id)" selected>#(x.name)</option>
+					#else
+					<option value="#(x.id)">#(x.name)</option>
+					#end
+					#end
+				</select>
+			</div>
+
+			<div class="form-group margin-bottom-20">
+				<label>反馈内容</label>
+				<div>
+					<script id="container" name="feedback.content" style="line-height: 20px;"  type="text/plain">#(feedback.content??)</script>
+				</div>
+			</div>
+
+			<div class="pull-right margin-bottom-20" >
+				<input class="btn btn-primary" type="submit" value="提交" />
+			</div>
+		</form>
+
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+	.jfa-content label {
+		line-height: 1;
+		vertical-align: baseline;
+		color: #23527c;
+		font-size: 20px;
+		font-weight: normal;
+		margin-bottom: 8px;;
+	}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		initUeditor();
+
+		// 上传时在 url 中用问号挂参的方式添加额外的参数 uploadType，用于分类管理图片
+		env.ueditor.ready(function() {
+			env.ueditor.execCommand('serverparam', {
+				'uploadType': 'feedback'
+			});
+		});
+
+		$("#myArticleForm").ajaxForm({
+			dataType: "json"
+			, beforeSubmit: function(formData, jqForm, options) {
+				env.ueditor.sync();  // 同步一下 ueditor 中的数据到表单域
+			}
+			, success: function(ret) {
+				if (ret.state == "ok") {
+					location.href = "/admin/feedback?p=#(p ?? 1)";
+				} else {
+					showFailMsg(ret.msg);
+				}
+			}
+			, error: function(ret) {alert(ret.statusText);}
+			, complete: function(ret) {} 	      // 无论是 success 还是 error，最终都会被回调
+		});
+	});
+</script>
+
+#end

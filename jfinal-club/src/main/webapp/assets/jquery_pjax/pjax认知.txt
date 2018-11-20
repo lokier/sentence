@@ -1,0 +1,10 @@
+
+版本：jquery-pjax 2.0.1
+官网：https://github.com/defunkt/jquery-pjax
+
+认知：
+1：通过 bootstrap switch 得知在点击浏览器回退的时候，动态加载的 html 片段中的
+    所有 js 会被再执行一次包括 $(document).ready(function(){}); 也会被执行
+
+2：js 动态添加，或者 pjax 动态添加的 html 片段需要使用 on 来绑定事件才能生效
+
