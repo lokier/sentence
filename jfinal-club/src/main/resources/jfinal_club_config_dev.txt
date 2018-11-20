@@ -1,18 +1,18 @@
-#主要配置
+#涓昏閰嶇疆
 jdbcUrl=jdbc:mysql://localhost:3306/jfinal_club?characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull
 user=root
-password=1234
+password=123456
 devMode=true
 engineDevMode=true
 
 
-# 邮件发送账号，用于激活注册账号与找回密码  ----------------------------
+# 閭欢鍙戦�佽处鍙凤紝鐢ㄤ簬婵�娲绘敞鍐岃处鍙蜂笌鎵惧洖瀵嗙爜  ----------------------------
 emailServer=test.com
 fromEmail=no-reply@test.com
 emailPass=yourPassword
 
-# cron4j 任务调度配置  ------------------------------------------
-# pvUpdate 每小时更新一次 project_page_view、share_page_view、feedback_page_view
+# cron4j 浠诲姟璋冨害閰嶇疆  ------------------------------------------
+# pvUpdate 姣忓皬鏃舵洿鏂颁竴娆� project_page_view銆乻hare_page_view銆乫eedback_page_view
 cron4j=pvUpdate
 pvUpdate.cron=0 * * * *
 pvUpdate.class=com.jfinal.club.common.pageview.PageViewUpdateTask
