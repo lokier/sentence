@@ -44,7 +44,7 @@ public class ImportEexcel2ES {
 	            new HttpHost("localhost", 9200, "http")).build();
 		
 		
-		initIndex(restClient);
+		//initIndex(restClient);
 		
 		int juziId = 0;
 		while(true) {

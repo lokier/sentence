@@ -1,0 +1,15 @@
+{
+  "mappings": {
+    "juzi": { 
+      "properties": { 
+        "content":    { "type": "text", "analyzer":"ik_max_word" }, 
+        "from":     { "type": "keyword"  }, 
+        "author":      { "type": "keyword" },  
+         "category":      { "type": "keyword" },  
+         "remark":      { "type": "text","analyzer":"ik_max_word"  },  
+         "tags":      { "type": "keyword" },  
+          "applyTags":      { "type": "text" ,"analyzer":"ik_max_word" }
+      }
+    }
+  }
+}

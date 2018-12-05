@@ -1,0 +1,39 @@
+
+创建索引：
+PUT /juzicool
+{
+  "mappings": {
+    "juzi": { 
+      "properties": { 
+        "content":    { "type": "text", "analyzer":"ik_max_word" }, 
+        "from":     { "type": "keyword"  }, 
+        "author":      { "type": "keyword" },  
+         "category":      { "type": "keyword" },  
+         "remark":      { "type": "text","analyzer":"ik_max_word"  },  
+         "tags":      { "type": "keyword" },  
+          "applyTags":      { "type": "text" ,"analyzer":"ik_max_word" }
+      }
+    }
+  }
+}
+
+
+删除索引
+DELETE /juzicool
+
+
+
+
+分词查看：
+GET /juzicool/juzi/1000000/_termvectors?fields=content
+
+GET _analyze
+{
+  "text": "文明古国",
+  "analyzer":"ik_smart"
+}
+
+
+
+document测试数据：
+{"applyTags":"城市里忙碌","author":"","category":"感悟","content":"生活的奴隶，忐忑抱怨讥讽 生活的主人，踏实明朗幸福 双重身份，兴许就是最佳方案","from":"","remark":"最安静的心跳与思绪才是我们真实的自己，为自己保留几年，生产期随时，但味道也许会变，最真实的自己献给青春， 城市自述","tags":"治愈"}
