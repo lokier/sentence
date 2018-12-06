@@ -5,13 +5,13 @@ PUT /juzicool
   "mappings": {
     "juzi": { 
       "properties": { 
-        "content":    { "type": "text", "analyzer":"ik_max_word" }, 
+        "content":    { "type": "text", "analyzer":"ik_max_word","search_analyzer":"ik_smart" }, 
         "from":     { "type": "keyword"  }, 
         "author":      { "type": "keyword" },  
          "category":      { "type": "keyword" },  
-         "remark":      { "type": "text","analyzer":"ik_max_word"  },  
+         "remark":      { "type": "text","analyzer":"ik_max_word","search_analyzer":"ik_smart" },  
          "tags":      { "type": "keyword" },  
-          "applyTags":      { "type": "text" ,"analyzer":"ik_max_word" }
+          "applyTags":      { "type": "text" ,"analyzer":"ik_max_word","search_analyzer":"ik_smart" }
       }
     }
   }
@@ -32,6 +32,13 @@ GET _analyze
   "text": "文明古国",
   "analyzer":"ik_smart"
 }
+
+
+查找：
+term是代表完全匹配，也就是精确查询，搜索前不会再对搜索词进行分词;
+match类查询:  也就是模糊搜索，会先对搜索词进行分词,分词完毕后再逐个对分词结果进行匹配；
+#match all ： 
+
 
 
 
