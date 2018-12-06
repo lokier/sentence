@@ -1,20 +1,56 @@
 {
-	"settings":{
-	 "refresh_interval" : "5s",
-	  "number_of_shards" : 1,
-      "number_of_replicas" : 1
+	"settings": {
+		"index": {
+			"number_of_shards": "1",
+			"number_of_replicas": "1"
+		},
+		"analysis": {
+			"analyzer": {
+				"juzi_keyword": {
+					"type": "pattern",
+					"pattern": "[\\[\\]【】,《》（）_，；。、-？！：─…—”〈〉,;:'\"\\`~|?!@#$%^&*()-+=]"
+				}
+			}
+		}
 	},
-  "mappings": {
-    "juzi": { 
-      "properties": { 
-        "content":    { "type": "text", "analyzer":"ik_max_word" }, 
-        "from":     { "type": "keyword"  }, 
-        "author":      { "type": "keyword" },  
-         "category":      { "type": "keyword" },  
-         "remark":      { "type": "text","analyzer":"ik_max_word"  },  
-         "tags":      { "type": "keyword" },  
-          "applyTags":      { "type": "text" ,"analyzer":"ik_max_word" }
-      }
-    }
-  }
+	"mappings": {
+		"juzi": {
+			"properties": {
+				"content": {
+					"type": "text",
+					"analyzer": "ik_max_word"
+				},
+				"from": {
+					"type": "text",
+					"analyzer": "juzi_keyword"
+				},
+				"author": {
+					"type": "text",
+					"analyzer": "juzi_keyword"
+				},
+				"category": {
+					"type": "keyword"
+				},
+				"remark": {
+					"type": "text",
+					"analyzer": "ik_max_word"
+				},
+				"tags": {
+					"type": "text",
+					"analyzer": "juzi_keyword"
+				},
+				"applyDesc": {
+					"type": "text",
+					"analyzer": "ik_smart"
+				},
+				"length": {
+					"type": "short"
+				},
+				"updateTime": {
+					"type": "date",
+					"format": "epoch_millis"
+				}
+			}
+		}
+	}
 }

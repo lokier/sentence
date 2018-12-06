@@ -39,7 +39,21 @@ term是代表完全匹配，也就是精确查询，搜索前不会再对搜索�
 match类查询:  也就是模糊搜索，会先对搜索词进行分词,分词完毕后再逐个对分词结果进行匹配；
 #match all ： 
 
-
+多字段查询：
+GET /juzicool/juzi/_search?explain=false
+{
+     "query": {
+        "multi_match": {
+            "query":  " 哭 高兴",
+            "type":   "most_fields", 
+            "fields": [ "tags","remark","applyDesc","content","category","author" ,"from"],
+            "analyzer": "ik_smart"
+          
+        }
+    },
+    "size":50,
+    "from":0
+}
 
 
 document测试数据：

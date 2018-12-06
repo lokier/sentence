@@ -70,7 +70,7 @@ public class JuziExcelReader {
 			juzi.category = getString(mSheet.getCell(START_COLUMN+3,row));
 			juzi.remark = getString(mSheet.getCell(START_COLUMN+4,row));
 			juzi.tags = getString(mSheet.getCell(START_COLUMN+5,row));
-			juzi.applyTags = getString(mSheet.getCell(START_COLUMN+6,row));
+			juzi.applyDesc = getString(mSheet.getCell(START_COLUMN+6,row));
 		}catch (ArrayIndexOutOfBoundsException e) {
 			return null;
 		}
