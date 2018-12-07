@@ -78,7 +78,8 @@ public class JFinalClubConfig extends JFinalConfig {
      * 4：便于分模块管理路由
      */
     public void configRoute(Routes me) {
-	    me.add(new FrontRoutes());
+	   // me.add(new FrontRoutes());
+	    me.add(new com.juzicool.search.FrontRoutes());
 	    me.add(new AdminRoutes());
     }
     

@@ -17,14 +17,8 @@ package com.juzicool.search.controller;
 import com.jfinal.aop.Before;
 import com.jfinal.club.common.controller.BaseController;
 import com.jfinal.club.common.interceptor.AuthCacheClearInterceptor;
-import com.jfinal.club.common.model.Download;
-import com.jfinal.club.common.model.Feedback;
-import com.jfinal.club.common.model.Project;
-import com.jfinal.club.common.model.Share;
-import com.jfinal.club.download.DownloadService;
 import com.juzicool.search.service.SearchService;
 
-import java.util.List;
 
 /**
  * 首页控制器
