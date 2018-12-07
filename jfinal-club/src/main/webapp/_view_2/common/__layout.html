@@ -1,0 +1,63 @@
+#define layout2()
+<!DOCTYPE html>
+<html class="">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+<meta name="renderer" content="webkit">
+
+<meta name="keywords" content="#(seoKeywords ?? 'JFinal,JFinal官网,JFinal教程,JFinal微信,JFinal Weixin,极速开发,快速开发框架,web框架')" />
+<meta name="description" content="#(seoDescr ?? 'JFinal 极速开发官方网站')" />
+<title>#(seoTitle ?? "JFinal 极速开发社区")</title>
+
+<!--<base href="http://demo.qa.shoutu.cn/q001/?/">--><base href="."><!--[if IE]></base><![endif]-->
+<link href="favicon.ico?v=20180831" rel="shortcut icon" type="image/x-icon">
+
+<link rel="stylesheet" type="text/css" href="./assets-v2/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="./assets-v2/css/icon.css">
+<link href="./assets-v2/css/common.css" rel="stylesheet" type="text/css">
+<link href="./assets-v2/css/link.css" rel="stylesheet" type="text/css">
+<link href="./assets-v2/css/style.css" rel="stylesheet" type="text/css">
+<link href="./assets-v2/css/shoutu.css" rel="stylesheet" type="text/css">
+<script src="./assets-v2/css/jquery.2.js" type="text/javascript"></script>
+<script src="./assets-v2/css/jquery.form.js" type="text/javascript"></script>
+<script src="./assets-v2/css/plug-in_module.js" type="text/javascript"></script>
+<script src="./assets-v2/css/aws.js" type="text/javascript"></script>
+<script src="./assets-v2/css/aw_template.js" type="text/javascript"></script>
+<script src="./assets-v2/css/app.js" type="text/javascript"></script>
+<script type="text/javascript" src="./assets-v2/css/compatibility.js"></script>
+
+<script type="text/javascript" src="./assets-v2/css/stickUp.min.js"></script>
+<script type="text/javascript" src="./assets-v2/css/headroom.min.js"></script>
+
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style></head>
+<body style="padding-top:0"><noscript unselectable="on" id="noscript">
+    <div class="aw-404 aw-404-wrap container">
+        <img src="http://demo.qa.shoutu.cn/q001/static/common/no-js.jpg">
+        <p>你的浏览器禁用了JavaScript, 请开启后刷新浏览器获得更好的体验!</p>
+    </div>
+</noscript>
+
+<!-- 中部主体容器 -->
+#@main()
+
+<!-- 底部容器 -->
+<div class="aw-footer-wrap">
+    <div class="aw-footer">
+        Copyright © 2018, All Rights Reserved
+
+        <span class="hidden-xs">Powered By <a href="http://www.juzicool.com/?copyright" target="blank">句子酷</a></span>
+
+            </div>
+</div>
+
+</body></html>
+
+### 模板函数安全调用，找到 js() 模板函数则调用，找不到则直接跳过
+### 适合于部分页面在 layout.html 提供的 js 文件之外，还需额外添加 js 资源的应用场景
+#@js?()
+</body>
+</html>
+#end
+
+
