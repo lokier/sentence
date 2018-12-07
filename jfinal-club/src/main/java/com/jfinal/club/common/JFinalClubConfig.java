@@ -102,6 +102,10 @@ public class JFinalClubConfig extends JFinalConfig {
 		me.addSharedFunction("/_view/_admin/common/__admin_layout.html");
 		me.addSharedFunction("/_view/_admin/common/_admin_paginate.html");
 		
+		
+		//新的前台模板V2
+		me.addSharedFunction("/_view2/common/__layout.html");
+
 	
 	}
     
