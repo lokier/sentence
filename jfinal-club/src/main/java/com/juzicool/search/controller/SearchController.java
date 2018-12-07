@@ -31,6 +31,11 @@ public class SearchController extends BaseController {
 
 		render("index.html");
 	}
+	
+	public void search() {
+		
+		render("serach_list.html");
+	}
 
 	@Before(AuthCacheClearInterceptor.class)
 	public void clear() {

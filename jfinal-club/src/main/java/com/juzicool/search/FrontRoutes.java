@@ -14,5 +14,6 @@ public class FrontRoutes extends Routes {
 		setBaseViewPath("/_view2");
 		
 		add("/", SearchController.class, "/");
+		//add("/search", SearchController.class, "/");
 	}
 }
