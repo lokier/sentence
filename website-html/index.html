@@ -9,7 +9,7 @@
 <meta name="keywords" content="WeCenter,知识社区,社交社区,问答社区">
 <meta name="description" content="WeCenter 社交化知识社区">
 <!--<base href="http://demo.qa.shoutu.cn/q001/?/">--><base href="."><!--[if IE]></base><![endif]-->
-<link href="http://demo.qa.shoutu.cn/q001/static/css/shoutu/img/favicon.ico?v=20180831" rel="shortcut icon" type="image/x-icon">
+<link href="favicon.ico?v=20180831" rel="shortcut icon" type="image/x-icon">
 
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./css/icon.css">
@@ -73,11 +73,14 @@
 				
 				
 				<!-- 搜索框 -->
-				<div class="aw-search-box">
+				<div class="aw-search-box-main">
 					<form class="navbar-search" action="http://demo.qa.shoutu.cn/q001/?/search/" id="global_search_form" method="post">
-						<input class="form-control search-query" style="width:400px" type="text" value="" placeholder="搜索问题、话题或人" autocomplete="off" name="q" id="aw-search-query">
-						<span title="搜索" id="global_search_btns" onclick="$(&#39;#global_search_form&#39;).submit();"><i class="icon icon-search"></i></span>
-		
+						<div >
+							<input class="form-control search-query" style="width:300px;display:inline" type="text" value="" placeholder="搜索内容、场景或评价" autocomplete="off" name="q" id="aw-search-query"/>
+							<span class="main-search-btn" data-id="8" style="display:inline;margin-left:5px" onclick="$(&#39;#global_search_form&#39;).submit();" ><a class="text" style="padding-left:10px;padding-right:10px;font-size:16px;">搜索</a></span>
+
+						</div>
+					
 					</form>
 				</div>
 				<!-- end 搜索框 -->
