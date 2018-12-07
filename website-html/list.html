@@ -9,7 +9,7 @@
 <meta name="keywords" content="WeCenter,知识社区,社交社区,问答社区">
 <meta name="description" content="WeCenter 社交化知识社区">
 <!--<base href="http://demo.qa.shoutu.cn/q001/?/">--><base href="."><!--[if IE]></base><![endif]-->
-<link href="http://demo.qa.shoutu.cn/q001/static/css/shoutu/img/favicon.ico?v=20180831" rel="shortcut icon" type="image/x-icon">
+<link href="favicon.ico?v=20180831" rel="shortcut icon" type="image/x-icon">
 
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="./css/icon.css">
@@ -68,47 +68,14 @@
 				</div>
 				<!-- end logo -->
 				
-				<!-- 导航 -->		
-				<div class="aw-top-nav navbar">
-					<div class="navbar-header">
-					  <button class="navbar-toggle pull-left">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-					</div>
-					<nav role="navigation" class="collapse navbar-collapse bs-navbar-collapse">
-					  <ul class="nav navbar-nav">
-																		<li><a href="http://demo.qa.shoutu.cn/q001" class="active">发现</a></li>
-						<li><a href="http://demo.qa.shoutu.cn/q001/?/topic/">话题</a></li>
-						<li><a href="http://demo.qa.shoutu.cn/q001/?/people/">用户</a></li>
-												
-																				<li>
-								<a href="http://demo.qa.shoutu.cn/q001/?/help/">帮助</a>							
-							</li>
-														<li>
-								<a href="javascript:;" data-toggle="modal" data-target="#loginAjax"><i class="icon icon-more"></i></a>
-							</li>
-											  </ul>
-					</nav>
-				</div>
-				<!-- end 导航 -->
+		
 				
 				<!-- 搜索框 -->
 				<div class="aw-search-box  hidden-xs hidden-sm">
 					<form class="navbar-search" action="http://demo.qa.shoutu.cn/q001/?/search/" id="global_search_form" method="post">
 						<input class="form-control search-query" type="text" value="" placeholder="搜索问题、话题或人" autocomplete="off" name="q" id="aw-search-query">
 						<span title="搜索" id="global_search_btns" onclick="$(&#39;#global_search_form&#39;).submit();"><i class="icon icon-search"></i></span>
-						<div class="aw-dropdown" style="display: none;">
-							<div class="mod-body">
-								<p class="title">输入关键字进行搜索</p>
-								<ul class="aw-dropdown-list collapse"></ul>
-								<p class="search"><span>搜索:</span><a onclick="$(&#39;#global_search_form&#39;).submit();"></a></p>
-							</div>
-							<div class="mod-footer">
-								<a href="http://demo.qa.shoutu.cn/q001/?/publish" onclick="$(&#39;#header_publish&#39;).click();" class="pull-right btn btn-mini btn-success publish">发起问题</a>
-							</div>
-						</div>
+						
 					</form>
 				</div>
 				<!-- end 搜索框 -->
@@ -116,23 +83,7 @@
 				<!-- 用户栏 -->
 				
 					
-					<!-- 登陆&注册栏 -->
-										<div class="aw-login-nav">	
-						<a class="login" href="javascript:;" data-toggle="modal" data-target="#loginAjax"><i class="icon icon-plus"></i> 登录</a>
-						<a class="register" href="http://demo.qa.shoutu.cn/q001/?/account/register/">注册</a>						<a class="phone" href="javascript:;">
-							<i class="icon icon-phone"></i><span class="caret text-color-999"></span>
-							<div class="aw-dropdown dropdown-list pull-right clearfix" style="width: 360px;">
-	<div class="col-xs-6 padding-0">
-		<img class="img-responsive" src="./css/wechat_code.png">
-		<p class="text-color-999" style="padding: 0; margin: 0; text-align: center;">用微信扫码关注我们</p>
-	</div>
-	<div class="col-xs-6 padding-0">
-		<img class="img-responsive" src="./css/api.php">
-		<p class="text-color-999" style="padding: 0; margin: 0; text-align: center;">用手机扫描二维码访问</p>
-	</div>
-</div>						</a>
-					</div>
-										<!-- end 登陆&注册栏 -->
+			
 				
 				<!-- end 用户栏 -->
 				<!-- 发起 -->
@@ -148,627 +99,185 @@
 				
 				<div class="col-sm-12 col-md-9 padding-0">
 					
-										<div class="aw-main-content padding-0">
-	<div class="stui-banner" style="padding: 20px;">
-		<div id="banner" class="carousel slide" data-ride="carousel">		   
-		    <div class="carousel-inner">
-		        <div class="item">
-		            <img class="img-responsive" src="./css/banner1.jpg">
-		        </div>
-		        <div class="item active">
-		            <img class="img-responsive" src="./css/banner2.jpg">
-		        </div>
-		        <div class="item">
-		            <img class="img-responsive" src="./css/banner3.jpg">
-		        </div>
-		    </div>	
-		     <ol class="carousel-indicators">
-		        <li data-target="#banner" data-slide-to="0" class=""></li>
-		        <li data-target="#banner" data-slide-to="1" class="active"></li>
-		        <li data-target="#banner" data-slide-to="2" class=""></li>
-		    </ol>   
-		</div>
-	</div>
-</div>					<div class="aw-main-content">
+			
+		<div class="aw-main-content">
 						
 						<!-- tab切换 -->
 						<ul class="nav nav-tabs aw-nav-tabs active hidden-xs">
-							<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-unresponsive">等待回复</a></li>
-							<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-hot__day-7" id="sort_control_hot">热门</a></li>
-							<li><a href="http://demo.qa.shoutu.cn/q001/?/is_recommend-1">推荐</a></li>
-							<li class="active"><a href="http://demo.qa.shoutu.cn/q001/?/">最新</a></li>
+							
 	
-							<h2 class="hidden-xs">发现</h2>
+							<h2 class="hidden-xs">查找结果</h2>
 						</ul>
 						<!-- end tab切换 -->
 	
 												
 
-		<ul class="stui-category clearfix">
-			<li class="active"><a href="http://demo.qa.shoutu.cn/q001/?/explore/">全部</a></li>
-			
-									<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-115">php</a>
-							</li>
-												<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-116">编程</a>
-							</li>
-												<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-117">网络资源</a>
-							</li>
-												<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-118">数据库</a>
-							</li>
-												<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a>
-							</li>
-												<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-119">操作系统</a>
-							</li>
-												<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-120">app</a>
-							</li>
-												<li>
-				<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-121">常用软件</a>
-							</li>
-																				</ul>
-
 	
 						<div class="aw-mod aw-explore-list">
 							<div class="mod-body">
 								<div class="aw-common-list">
+								
 									<div class="aw-item " data-topic-id="8,2,59,">
-	<a class="aw-user-name hidden-xs" data-id="445" href="http://demo.qa.shoutu.cn/q001/?/people/bmggwanm" rel="nofollow"><img src="./css/45_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-120">app</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/wsh5136132" class="aw-user-name" data-id="478">wsh5136132</a>				<span class="text-color-999">回复了问题 • 2018-11-13 16:31</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE" class="aw-topic-name text-color-999" data-id="8">网站建设</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%BE%AE%E4%BF%A1" class="aw-topic-name text-color-999" data-id="2">微信</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%A3%8B%E7%89%8C%E6%B8%B8%E6%88%8F" class="aw-topic-name text-color-999" data-id="59">棋牌游戏</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/155">开发一个APP需要多少钱?</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="478" href="http://demo.qa.shoutu.cn/q001/?/people/wsh5136132" rel="nofollow"><img src="./css/avatar-mid-img.png" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">3 人关注 • 1 个回复 • 249 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="7,10,">
-	<a class="aw-user-name hidden-xs" data-id="20" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE" rel="nofollow"><img src="./css/20_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-115">php</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/%E5%93%81%E5%B1%B1%E9%98%85%E6%B0%B4" class="aw-user-name" data-id="461">品山阅水</a>				<span class="text-color-999">回复了问题 • 2018-10-27 22:53</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BC%96%E7%A8%8B" class="aw-topic-name text-color-999" data-id="7">编程</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%8C%BF%E5%90%8D" class="aw-topic-name text-color-999" data-id="10">匿名</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/143">php中如何实现本页面局部刷新实例</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="466" href="http://demo.qa.shoutu.cn/q001/?/people/K%E7%B1%B3" rel="nofollow"><img src="./css/avatar-mid-img.png" alt=""></a>
-		    		    <a class="aw-user-name" data-id="461" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%93%81%E5%B1%B1%E9%98%85%E6%B0%B4" rel="nofollow"><img src="./css/avatar-mid-img.png" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">4 人关注 • 3 个回复 • 238 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="26,12,7,30,">
-	<a class="aw-user-name hidden-xs" data-id="446" href="http://demo.qa.shoutu.cn/q001/?/people/vstorm" rel="nofollow"><img src="./css/46_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/xiaoseng" class="aw-user-name" data-id="458">xiaoseng</a>				<span class="text-color-999">回复了问题 • 2018-09-30 16:13</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%B7%A5%E4%BD%9C" class="aw-topic-name text-color-999" data-id="26">工作</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E4%BA%92%E8%81%94%E7%BD%91" class="aw-topic-name text-color-999" data-id="12">互联网</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BC%96%E7%A8%8B" class="aw-topic-name text-color-999" data-id="7">编程</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%95%B0%E6%8D%AE%E5%BA%93" class="aw-topic-name text-color-999" data-id="30">数据库</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/156">shopnc多用户商城网站标题的版权如何去掉？</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="458" href="http://demo.qa.shoutu.cn/q001/?/people/xiaoseng" rel="nofollow"><img src="./css/avatar-mid-img.png" alt=""></a>
-		    		    <a class="aw-user-name" data-id="447" href="http://demo.qa.shoutu.cn/q001/?/people/zongmu" rel="nofollow"><img src="./css/47_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">3 人关注 • 3 个回复 • 269 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="55,56,57,58,10,">
-	<a class="aw-user-name hidden-xs" data-id="20" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE" rel="nofollow"><img src="./css/20_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/%E8%9B%8B%E9%BB%84%E5%A4%A7%E9%A5%BC" class="aw-user-name" data-id="444">蛋黄大饼</a>				<span class="text-color-999">回复了问题 • 2018-09-10 23:02</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%B0%91%E6%97%8F" class="aw-topic-name text-color-999" data-id="55">民族</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%94%BF%E6%B2%BB" class="aw-topic-name text-color-999" data-id="56">政治</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%93%B2%E5%AD%A6" class="aw-topic-name text-color-999" data-id="57">哲学</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E8%AE%BA%E6%96%87" class="aw-topic-name text-color-999" data-id="58">论文</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%8C%BF%E5%90%8D" class="aw-topic-name text-color-999" data-id="10">匿名</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/154">如何提高全民族知识产权的保护意识</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="443" href="http://demo.qa.shoutu.cn/q001/?/people/13131212" rel="nofollow"><img src="./css/43_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="444" href="http://demo.qa.shoutu.cn/q001/?/people/%E8%9B%8B%E9%BB%84%E5%A4%A7%E9%A5%BC" rel="nofollow"><img src="./css/44_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 2 个回复 • 103 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="5,10,">
-	<a class="aw-user-name hidden-xs" data-id="20" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE" rel="nofollow"><img src="./css/20_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/sunye96" class="aw-user-name" data-id="442">sunye96</a>				<span class="text-color-999">回复了问题 • 2018-09-10 23:02</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E4%BC%81%E4%B8%9A%E7%AE%A1%E7%90%86" class="aw-topic-name text-color-999" data-id="5">企业管理</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%8C%BF%E5%90%8D" class="aw-topic-name text-color-999" data-id="10">匿名</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/153">如何理解知识产权国际保护法</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="439" href="http://demo.qa.shoutu.cn/q001/?/people/196922022" rel="nofollow"><img src="./css/39_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="440" href="http://demo.qa.shoutu.cn/q001/?/people/8866555" rel="nofollow"><img src="./css/40_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 4 个回复 • 62 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="52,12,53,">
-	<a class="aw-user-name hidden-xs" data-id="436" href="http://demo.qa.shoutu.cn/q001/?/people/bmw9711" rel="nofollow"><img src="./css/36_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86%E6%96%B9%E6%A1%88" class="aw-user-name" data-id="438">文件解密方案</a>				<span class="text-color-999">回复了问题 • 2018-09-10 23:02</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8" class="aw-topic-name text-color-999" data-id="52">网络安全</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E4%BA%92%E8%81%94%E7%BD%91" class="aw-topic-name text-color-999" data-id="12">互联网</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E8%AE%A1%E7%AE%97%E6%9C%BA" class="aw-topic-name text-color-999" data-id="53">计算机</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/152">被安软知识产权保护系统加密的文件如何破解？</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="437" href="http://demo.qa.shoutu.cn/q001/?/people/xxx91" rel="nofollow"><img src="./css/37_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="438" href="http://demo.qa.shoutu.cn/q001/?/people/%E6%96%87%E4%BB%B6%E8%A7%A3%E5%AF%86%E6%96%B9%E6%A1%88" rel="nofollow"><img src="./css/38_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 2 个回复 • 69 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="433" href="http://demo.qa.shoutu.cn/q001/?/people/bianxiaoke_ko" rel="nofollow"><img src="./css/33_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/zhx19790502" class="aw-user-name" data-id="435">zhx19790502</a>				<span class="text-color-999">回复了问题 • 2018-09-10 23:02</span>
+										<a class="aw-user-name hidden-xs" data-id="445" href="http://demo.qa.shoutu.cn/q001/?/people/bmggwanm" rel="nofollow"><img src="./css/45_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
 											
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/151">AES加密算法的C语言实现</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="434" href="http://demo.qa.shoutu.cn/q001/?/people/kkkvcd" rel="nofollow"><img src="./css/34_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="435" href="http://demo.qa.shoutu.cn/q001/?/people/zhx19790502" rel="nofollow"><img src="./css/35_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 2 个回复 • 50 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="430" href="http://demo.qa.shoutu.cn/q001/?/people/%E7%BF%BB%E8%AF%91%E8%8B%B1%E8%AF%AD" rel="nofollow"><img src="./css/30_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/linkdei" class="aw-user-name" data-id="432">linkdei</a>				<span class="text-color-999">回复了问题 • 2018-09-10 23:02</span>
+											<p>
+												<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-120">分类</a> 
+												• <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE" class="aw-topic-name text-color-999" data-id="8">标签1</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%BE%AE%E4%BF%A1" class="aw-topic-name text-color-999" data-id="2">标签2</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%A3%8B%E7%89%8C%E6%B8%B8%E6%88%8F" class="aw-topic-name text-color-999" data-id="59">标签3</a>		
+											</p>
 											
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/150">Fortiweb 如何实现安全加密？</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="431" href="http://demo.qa.shoutu.cn/q001/?/people/57576" rel="nofollow"><img src="./css/31_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="432" href="http://demo.qa.shoutu.cn/q001/?/people/linkdei" rel="nofollow"><img src="./css/32_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 2 个回复 • 56 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="16,7,21,">
-	<a class="aw-user-name hidden-xs" data-id="427" href="http://demo.qa.shoutu.cn/q001/?/people/rjhfa" rel="nofollow"><img src="./css/27_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/%E4%B8%80%E5%88%87%E9%9A%8F%E9%A3%8E%E5%A5%BD%E4%BA%86" class="aw-user-name" data-id="429">一切随风好了</a>				<span class="text-color-999">回复了问题 • 2018-09-10 23:02</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" class="aw-topic-name text-color-999" data-id="16">操作系统</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BC%96%E7%A8%8B" class="aw-topic-name text-color-999" data-id="7">编程</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/Linux" class="aw-topic-name text-color-999" data-id="21">Linux</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/149">Linux中PROFTP和ORACLE配合，如何实现登陆口令的MD5加密。</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="428" href="http://demo.qa.shoutu.cn/q001/?/people/wsdx888" rel="nofollow"><img src="./css/28_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="429" href="http://demo.qa.shoutu.cn/q001/?/people/%E4%B8%80%E5%88%87%E9%9A%8F%E9%A3%8E%E5%A5%BD%E4%BA%86" rel="nofollow"><img src="./css/29_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">1 人关注 • 2 个回复 • 56 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item article" data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="300" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%BC%A0%E5%AE%B6%E4%BC%9F" rel="nofollow"><img src="./css/00_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-										
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E5%BC%A0%E5%AE%B6%E4%BC%9F" class="aw-user-name">张家伟</a> 
-				<span class="text-color-999">发表了文章 • 2018-09-10 23:01</span>
-								
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/article/41">SEC再出重拳 暂停两款热门数字货币投资工具</a>
-					</h4>
-				<p>
-						
-				<span class="text-color-999">0 个评论 • 78 次浏览</span>
-				
-		</p>
-	</div>
-</div>
-<div class="aw-item article" data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="120" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%88%98%E9%95%94%E7%BB%83" rel="nofollow"><img src="./css/20_avatar_max(1).jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-										
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E5%88%98%E9%95%94%E7%BB%83" class="aw-user-name">刘镔练</a> 
-				<span class="text-color-999">发表了文章 • 2018-09-10 23:01</span>
-								
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/article/40">日本二季度GDP年化季环比3% 创9个季度以来新高</a>
-					</h4>
-				<p>
-						
-				<span class="text-color-999">3 个评论 • 77 次浏览</span>
-				
-		</p>
-	</div>
-</div>
-<div class="aw-item article" data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="121" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%91%A8%E6%98%8E%E6%98%8E" rel="nofollow"><img src="./css/21_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-										
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E5%91%A8%E6%98%8E%E6%98%8E" class="aw-user-name">周明明</a> 
-				<span class="text-color-999">发表了文章 • 2018-09-10 22:58</span>
-								
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/article/38">戴维斯双击的终结：为何中报业绩不错，A股却不买账</a>
-					</h4>
-				<p>
-						
-				<span class="text-color-999">1 个评论 • 29 次浏览</span>
-				
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="10,">
-	<a class="aw-user-name hidden-xs" data-id="20" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE" rel="nofollow"><img src="./css/20_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/289402882" class="aw-user-name" data-id="424">289402882</a>				<span class="text-color-999">回复了问题 • 2018-09-10 22:58</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%8C%BF%E5%90%8D" class="aw-topic-name text-color-999" data-id="10">匿名</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/147">为什么没有人正确的回答关于361txt com cn  :网站是否存在恶意代码的问题</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="423" href="http://demo.qa.shoutu.cn/q001/?/people/yu%E8%80%97%E5%AD%90" rel="nofollow"><img src="./css/23_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="424" href="http://demo.qa.shoutu.cn/q001/?/people/289402882" rel="nofollow"><img src="./css/24_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">1 人关注 • 2 个回复 • 25 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="425" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%BC%BA%E5%93%A5%E8%AF%B4%E4%BA%8B" rel="nofollow"><img src="./css/25_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/rgdcxym" class="aw-user-name" data-id="426">rgdcxym</a>				<span class="text-color-999">回复了问题 • 2018-09-10 22:58</span>
+											<h4>
+												被重视或者说被肯定 总之我们不愿意做那个被遗忘的 聚焦之下 名声大噪 只是，我们把自己习惯于这种足够的气场之中 好像是，别人必须给我们一个圈 否则自己无法画地成牢 自己在哪里 多了围观 没有了灵魂
+											</h4>
 											
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/148">pdf文件如何加密最安全最难破解?</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="426" href="http://demo.qa.shoutu.cn/q001/?/people/rgdcxym" rel="nofollow"><img src="./css/26_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 1 个回复 • 30 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item active" data-topic-id="12,18,">
-	<a class="aw-user-name hidden-xs" data-id="422" href="http://demo.qa.shoutu.cn/q001/?/people/%E6%88%91%E6%98%AF%E5%AE%9D%E8%B4%9D%E8%80%81%E5%A9%86" rel="nofollow"><img src="./css/22_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-115">php</a> • 
+											<div class="pull-right hidden-xs contribute">
+												<span class="pull-right text-color-999">贡献</span>
+												<a class="aw-user-name" data-id="478" href="http://demo.qa.shoutu.cn/q001/?/people/wsh5136132" rel="nofollow"><img src="./css/img/avatar.jpg" alt=""></a>
+											</div>
+											<p>
+												<span class="text-color-999">作者：沃尔玛 • 来自：《我们的人》3 人关注 • 1 个回复 • 249 次浏览</span>
 																
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%88%91%E6%98%AF%E5%AE%9D%E8%B4%9D%E8%80%81%E5%A9%86" class="aw-user-name">我是宝贝老婆</a>				<span class="text-color-999">发起了问题 • 2018-09-10 22:58</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E4%BA%92%E8%81%94%E7%BD%91" class="aw-topic-name text-color-999" data-id="12">互联网</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%94%B5%E8%84%91%E8%BD%AF%E4%BB%B6" class="aw-topic-name text-color-999" data-id="18">电脑软件</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/146">php中关于mysql_affected_rows的问题，怎么解决？</a>
-					</h4>
-				<a href="http://demo.qa.shoutu.cn/q001/?/question/146#!answer_form" class="pull-right text-color-999">回复</a>
-				<p>
-										<span class="text-color-999">1 人关注 • 0 个回复 • 42 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="7,12,">
-	<a class="aw-user-name hidden-xs" data-id="420" href="http://demo.qa.shoutu.cn/q001/?/people/%E4%B8%81%E5%A6%82%E7%99%BD" rel="nofollow"><img src="./css/20_avatar_max(2).jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/mnbvcxzaqws" class="aw-user-name" data-id="421">mnbvcxzaqws</a>				<span class="text-color-999">回复了问题 • 2018-09-10 22:58</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BC%96%E7%A8%8B" class="aw-topic-name text-color-999" data-id="7">编程</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E4%BA%92%E8%81%94%E7%BD%91" class="aw-topic-name text-color-999" data-id="12">互联网</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/145">关于插入php图片验证码后，递交时候写判断代码的问题？</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="421" href="http://demo.qa.shoutu.cn/q001/?/people/mnbvcxzaqws" rel="nofollow"><img src="./css/21_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 1 个回复 • 35 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="31,12,">
-	<a class="aw-user-name hidden-xs" data-id="415" href="http://demo.qa.shoutu.cn/q001/?/people/%E7%AF%AE%E7%8C%AB%E5%8A%A0%E6%B2%B9" rel="nofollow"><img src="./css/15_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-115">php</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/%E9%A9%AC%E7%94%B2%E4%B9%8B%E9%A9%AC%E7%94%B2%E9%A9%AC%E7%94%B2" class="aw-user-name" data-id="419">马甲之马甲马甲</a>				<span class="text-color-999">回复了问题 • 2018-09-10 22:58</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E4%B8%8B%E8%BD%BD" class="aw-topic-name text-color-999" data-id="31">下载</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E4%BA%92%E8%81%94%E7%BD%91" class="aw-topic-name text-color-999" data-id="12">互联网</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/144">关于用PHP写下载文件的那部分代码？</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="416" href="http://demo.qa.shoutu.cn/q001/?/people/dgsl10406" rel="nofollow"><img src="./css/16_avatar_mid.jpg" alt=""></a>
-		    		    <a class="aw-user-name" data-id="417" href="http://demo.qa.shoutu.cn/q001/?/people/lulu968313" rel="nofollow"><img src="./css/17_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">1 人关注 • 4 个回复 • 58 次浏览</span>
-							
-		</p>
-	</div>
-</div>
-<div class="aw-item article" data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="274" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%BB%96%E5%BF%97%E9%B8%BF" rel="nofollow"><img src="./css/74_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-										
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E5%BB%96%E5%BF%97%E9%B8%BF" class="aw-user-name">廖志鸿</a> 
-				<span class="text-color-999">发表了文章 • 2018-09-10 22:58</span>
-								
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/article/39">班农谈白宫“内鬼”：这就是对特朗普的“政变”</a>
-					</h4>
-				<p>
-						
-				<span class="text-color-999">0 个评论 • 44 次浏览</span>
+											</p>
+										</div>
+									</div>
+									
+									<div class="aw-item " data-topic-id="8,2,59,">
+										<a class="aw-user-name hidden-xs" data-id="445" href="http://demo.qa.shoutu.cn/q001/?/people/bmggwanm" rel="nofollow"><img src="./css/45_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
+											
+											<p>
+												<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-120">分类</a> 
+												• <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE" class="aw-topic-name text-color-999" data-id="8">标签1</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%BE%AE%E4%BF%A1" class="aw-topic-name text-color-999" data-id="2">标签2</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%A3%8B%E7%89%8C%E6%B8%B8%E6%88%8F" class="aw-topic-name text-color-999" data-id="59">标签3</a>		
+											</p>
+											
+											<h4>
+												被重视或者说被肯定 总之我们不愿意做那个被遗忘的 聚焦之下 名声大噪 只是，我们把自己习惯于这种足够的气场之中 好像是，别人必须给我们一个圈 否则自己无法画地成牢 自己在哪里 多了围观 没有了灵魂
+											</h4>
+											
+											<div class="pull-right hidden-xs contribute">
+												<span class="pull-right text-color-999">贡献</span>
+												<a class="aw-user-name" data-id="478" href="http://demo.qa.shoutu.cn/q001/?/people/wsh5136132" rel="nofollow"><img src="./css/img/avatar.jpg" alt=""></a>
+											</div>
+											<p>
+												<span class="text-color-999">3 人关注 • 1 个回复 • 249 次浏览</span>
+																
+											</p>
+										</div>
+									</div>
+
+									
+									
+									
 				
-		</p>
-	</div>
-</div>
-<div class="aw-item article" data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="122" href="http://demo.qa.shoutu.cn/q001/?/people/Steven" rel="nofollow"><img src="./css/22_avatar_max(1).jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-										
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/Steven" class="aw-user-name">Steven</a> 
-				<span class="text-color-999">发表了文章 • 2018-09-10 22:58</span>
-								
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/article/37">江湖再无风清扬</a>
-					</h4>
-				<p>
-						
-				<span class="text-color-999">0 个评论 • 24 次浏览</span>
-				
-		</p>
-	</div>
-</div>
-<div class="aw-item article" data-topic-id="">
-	<a class="aw-user-name hidden-xs" data-id="414" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%88%98%E6%99%93%E7%BF%A0" rel="nofollow"><img src="./css/14_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-										
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E5%88%98%E6%99%93%E7%BF%A0" class="aw-user-name">刘晓翠</a> 
-				<span class="text-color-999">发表了文章 • 2018-09-10 22:57</span>
-								
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/article/36">阿里巴巴官方：马云并不是退休 仍然是阿里巴巴1号员工与合伙人</a>
-					</h4>
-				<p>
-						
-				<span class="text-color-999">2 个评论 • 79 次浏览</span>
-				
-		</p>
-	</div>
-</div>
-<div class="aw-item " data-topic-id="18,10,">
-	<a class="aw-user-name hidden-xs" data-id="20" href="http://demo.qa.shoutu.cn/q001/?/people/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE" rel="nofollow"><img src="./css/20_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-		
-		<p>
-							<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-1">默认分类</a> • 
-												<a href="http://demo.qa.shoutu.cn/q001/?/people/q9888" class="aw-user-name" data-id="413">q9888</a>				<span class="text-color-999">回复了问题 • 2018-09-10 22:57</span>
-									 • <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%94%B5%E8%84%91%E8%BD%AF%E4%BB%B6" class="aw-topic-name text-color-999" data-id="18">电脑软件</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%8C%BF%E5%90%8D" class="aw-topic-name text-color-999" data-id="10">匿名</a>		
-		</p>
-		
-		<h4>
-						<a href="http://demo.qa.shoutu.cn/q001/?/question/142">如何实现dsp硬件加密</a>
-					</h4>
-				<div class="pull-right hidden-xs contribute">
-			<span class="pull-right text-color-999">贡献</span>
-		    		    <a class="aw-user-name" data-id="413" href="http://demo.qa.shoutu.cn/q001/?/people/q9888" rel="nofollow"><img src="./css/13_avatar_mid.jpg" alt=""></a>
-		    		</div>
-				<p>
-										<span class="text-color-999">0 人关注 • 1 个回复 • 22 次浏览</span>
-							
-		</p>
-	</div>
-</div>
 								</div>
 							</div>
+							
 							<div class="mod-footer">
-								<div class="page-control"><ul class="pagination"><li class="active"><a href="javascript:;">1</a></li><li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">2</a></li><li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-3">3</a></li><li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-4">4</a></li><li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">&gt;</a></li><li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-10">&gt;&gt;</a></li></ul></div>							</div>
+								<div class="page-control">
+									<ul class="pagination">
+										<li class="active">
+											<a href="javascript:;">1</a></li><li>
+											<a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">2</a>
+										</li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-3">3</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-4">4</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">&gt;</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-10">&gt;&gt;</a>
+									</li></ul>
+								</div>							
+							</div>
+							
+							<div class="mod-footer">
+								<div class="page-control">
+									<ul class="pagination">
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-3">&lt;</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0">1</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">2</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-3">3</a></li>
+										<li class="active"><a href="javascript:;">4</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-5">5</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-6">6</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-7">7</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-5">&gt;</a></li>
+										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-10">&gt;&gt;</a></li>
+									</ul>
+								</div>
+							</div>
+
+							
 						</div>
 					</div>
 				</div>
 
-				<!-- 侧边栏 -->
-				<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs hidden-sm">	
-									
-					<div class="aw-mod aw-text-align-justify">
-	<div class="mod-head">
-		<a href="http://demo.qa.shoutu.cn/q001/?/topic/channel-hot" class="pull-right">更多 &gt;</a>
-		<h3>热门话题</h3>
-	</div>
-	<div class="mod-body">
-							</div>
-</div>
-					<div class="aw-mod">
-	<div class="mod-head">
-		<h3>最新专题</h3>
-	</div>
-	<div class="mod-body">
-		<ul class="list">
-							<li>
-					<a href="http://demo.qa.shoutu.cn/q001/?/feature/3">不得不关注的设计基础话题</a>
-					<p class="text-color-999">-该专题收录 5 个话题</p>
-				</li>
-				
-							<li>
-					<a href="http://demo.qa.shoutu.cn/q001/?/feature/2">企业管理层关注的一些话题</a>
-					<p class="text-color-999">-该专题收录 5 个话题</p>
-				</li>
-				
-							<li>
-					<a href="http://demo.qa.shoutu.cn/q001/?/feature/1">天猫双十一相关话题集锦</a>
-					<p class="text-color-999">-该专题收录 5 个话题</p>
-				</li>
-				
-					</ul>
-	</div>
-</div>
-					<div class="aw-mod aw-text-align-justify">
-	<div class="mod-head">
-		<a href="http://demo.qa.shoutu.cn/q001/?/people/" class="pull-right">更多 &gt;</a>
-		<h3>活跃用户</h3>
-	</div>
-	<div class="mod-body">
-					
-		<dl>
-			<dt class="pull-left aw-border-radius-5">
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%AD%A5%E8%A1%8C%E8%80%85"><img class="avatar" alt="" src="./css/avatar-mid-img.png"></a>
-			</dt>
-			<dd class="pull-left">
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%AD%A5%E8%A1%8C%E8%80%85" data-id="482" class="aw-user-name">步行者									
-				</a>
-				<p>0 个问题, 0 次赞同</p>
-			</dd>
-		</dl>
-			
-		<dl>
-			<dt class="pull-left aw-border-radius-5">
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/akenyIsa"><img class="avatar" alt="" src="./css/avatar-mid-img.png"></a>
-			</dt>
-			<dd class="pull-left">
-				<a href="http://demo.qa.shoutu.cn/q001/?/people/akenyIsa" data-id="481" class="aw-user-name">akenyIsa									
-				</a>
-				<p>0 个问题, 0 次赞同</p>
-			</dd>
-		</dl>
+			<!-- 侧边栏 -->
+			<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs hidden-sm">				
+				<div class="aw-mod aw-text-align-justify">
+					<div class="mod-head">
+						<a href="http://demo.qa.shoutu.cn/q001/?/topic/channel-hot" class="pull-right">更多 &gt;</a>
+						<h3>热门话题</h3>
 					</div>
-</div>					
-					<div id="sidebar-stickUp" class="stuckMenu" style="width: 220px; position: relative; top: 0px;">
-	<div class="aw-mod">
-		<a target="_blank">
-			<img class="img-responsive" src="./css/side_ad1.jpg">
-		</a>
-	</div>
-	<div class="aw-mod">
-		<div class="mod-body">
-			<p><img class="img-responsive" src="./css/wechat_code.png"></p>
-			<p class="text-color-999 text-center">用微信扫描二维码关注我们</p>
-			<p class="text-color-999 text-center">微信号：shoutu_cn</p>
-		</div>
-	</div>
-</div>				</div>
-				<!-- end 侧边栏 -->
+					<div class="mod-body">
+							xxxxx	
+					</div>
+				</div>
+			
+				<div class="aw-mod">
+					<div class="mod-head">
+						<h3>最新专题</h3>
+					</div>
+					<div class="mod-body">
+						<ul class="list">
+											<li>
+									<a href="http://demo.qa.shoutu.cn/q001/?/feature/3">不得不关注的设计基础话题</a>
+									<p class="text-color-999">-该专题收录 5 个话题</p>
+								</li>
+								
+											<li>
+									<a href="http://demo.qa.shoutu.cn/q001/?/feature/2">企业管理层关注的一些话题</a>
+									<p class="text-color-999">-该专题收录 5 个话题</p>
+								</li>
+								
+											<li>
+									<a href="http://demo.qa.shoutu.cn/q001/?/feature/1">天猫双十一相关话题集锦</a>
+									<p class="text-color-999">-该专题收录 5 个话题</p>
+								</li>
+								
+									</ul>
+					</div>
+				</div>
+				<div class="aw-mod aw-text-align-justify">
+					<div class="mod-head">
+						<a href="http://demo.qa.shoutu.cn/q001/?/people/" class="pull-right">更多 &gt;</a>
+						<h3>活跃用户</h3>
+					</div>
+					<div class="mod-body">
+									
+						<dl>
+							<dt class="pull-left aw-border-radius-5">
+								<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%AD%A5%E8%A1%8C%E8%80%85"><img class="avatar" alt="" src="./css/avatar-mid-img.png"></a>
+							</dt>
+							<dd class="pull-left">
+								<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%AD%A5%E8%A1%8C%E8%80%85" data-id="482" class="aw-user-name">步行者									
+								</a>
+								<p>0 个问题, 0 次赞同</p>
+							</dd>
+						</dl>
+							
+						<dl>
+							<dt class="pull-left aw-border-radius-5">
+								<a href="http://demo.qa.shoutu.cn/q001/?/people/akenyIsa"><img class="avatar" alt="" src="./css/avatar-mid-img.png"></a>
+							</dt>
+							<dd class="pull-left">
+								<a href="http://demo.qa.shoutu.cn/q001/?/people/akenyIsa" data-id="481" class="aw-user-name">akenyIsa									
+								</a>
+								<p>0 个问题, 0 次赞同</p>
+							</dd>
+						</dl>
+									</div>
+				</div>					
+					
+			</div>
+			<!-- end 侧边栏 -->
+				
+				
 			</div>
 		</div>
 	</div>

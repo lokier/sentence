@@ -35,7 +35,7 @@ public class JuziQueryDemo {
           
         }
     },
-    "size":50,
+    "size":50, 
     "from":0
 }
 		 */
