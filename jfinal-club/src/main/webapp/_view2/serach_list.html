@@ -8,7 +8,7 @@
 			<div class="row">
 				<!-- logo -->
 				<div class="aw-logo hidden-xs">
-					<a href="http://demo.qa.shoutu.cn/q001"></a>
+					<a href="/"></a>
 				</div>
 				<!-- end logo -->
 				
@@ -16,8 +16,8 @@
 				
 				<!-- 搜索框 -->
 				<div class="aw-search-box  hidden-xs hidden-sm">
-					<form class="navbar-search" action="http://demo.qa.shoutu.cn/q001/?/search/" id="global_search_form" method="post">
-						<input class="form-control search-query" type="text" value="" placeholder="搜索问题、话题或人" autocomplete="off" name="q" id="aw-search-query">
+					<form class="navbar-search" action="/search" id="global_search_form" method="get">
+						<input class="form-control search-query" type="text" value="#(q)" placeholder="搜索问题、话题或人" autocomplete="off" name="q" id="aw-search-query">
 						<span title="搜索" id="global_search_btns" onclick="$(&#39;#global_search_form&#39;).submit();"><i class="icon icon-search"></i></span>
 						
 					</form>
@@ -55,12 +55,11 @@
 						<!-- end tab切换 -->
 	
 												
-
 	
 						<div class="aw-mod aw-explore-list">
 							<div class="mod-body">
 								<div class="aw-common-list">
-								
+									#for(juzi : juziList)
 									<div class="aw-item " data-topic-id="8,2,59,">
 										<a class="aw-user-name hidden-xs" data-id="445" href="http://demo.qa.shoutu.cn/q001/?/people/bmggwanm" rel="nofollow"><img src="./assets-v2/css/45_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
 											
@@ -70,7 +69,7 @@
 											</p>
 											
 											<h4>
-												被重视或者说被肯定 总之我们不愿意做那个被遗忘的 聚焦之下 名声大噪 只是，我们把自己习惯于这种足够的气场之中 好像是，别人必须给我们一个圈 否则自己无法画地成牢 自己在哪里 多了围观 没有了灵魂
+												#(juzi.content)
 											</h4>
 											
 											<div class="pull-right hidden-xs contribute">
@@ -78,39 +77,12 @@
 												<a class="aw-user-name" data-id="478" href="http://demo.qa.shoutu.cn/q001/?/people/wsh5136132" rel="nofollow"><img src="./assets-v2/css/img/avatar.jpg" alt=""></a>
 											</div>
 											<p>
-												<span class="text-color-999">作者：沃尔玛 • 来自：《我们的人》3 人关注 • 1 个回复 • 249 次浏览</span>
+												<span class="text-color-999">作者：#(juzi.author) • 来自： #(juzi.from)</span>
 																
 											</p>
 										</div>
 									</div>
-									
-									<div class="aw-item " data-topic-id="8,2,59,">
-										<a class="aw-user-name hidden-xs" data-id="445" href="http://demo.qa.shoutu.cn/q001/?/people/bmggwanm" rel="nofollow"><img src="./assets-v2/css/45_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
-											
-											<p>
-												<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-120">分类</a> 
-												• <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE" class="aw-topic-name text-color-999" data-id="8">标签1</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%BE%AE%E4%BF%A1" class="aw-topic-name text-color-999" data-id="2">标签2</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%A3%8B%E7%89%8C%E6%B8%B8%E6%88%8F" class="aw-topic-name text-color-999" data-id="59">标签3</a>		
-											</p>
-											
-											<h4>
-												被重视或者说被肯定 总之我们不愿意做那个被遗忘的 聚焦之下 名声大噪 只是，我们把自己习惯于这种足够的气场之中 好像是，别人必须给我们一个圈 否则自己无法画地成牢 自己在哪里 多了围观 没有了灵魂
-											</h4>
-											
-											<div class="pull-right hidden-xs contribute">
-												<span class="pull-right text-color-999">贡献</span>
-												<a class="aw-user-name" data-id="478" href="http://demo.qa.shoutu.cn/q001/?/people/wsh5136132" rel="nofollow"><img src="./assets-v2/css/img/avatar.jpg" alt=""></a>
-											</div>
-											<p>
-												<span class="text-color-999">3 人关注 • 1 个回复 • 249 次浏览</span>
-																
-											</p>
-										</div>
-									</div>
-
-									
-									
-									
-				
+									#end
 								</div>
 							</div>
 							

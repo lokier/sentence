@@ -13,10 +13,14 @@
  */
 
 package com.juzicool.search.controller;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfinal.aop.Before;
 import com.jfinal.club.common.controller.BaseController;
 import com.jfinal.club.common.interceptor.AuthCacheClearInterceptor;
+import com.jfinal.club.common.model.Project;
+import com.juzicool.data.Juzi;
 import com.juzicool.search.service.SearchService;
 
 
@@ -33,7 +37,34 @@ public class SearchController extends BaseController {
 	}
 	
 	public void search() {
+		//setAttr("q", value);
+		String query = super.getPara("q", "");
+		if(query.isEmpty()) {
+			 render("index.html");
+			 return;
+		}
 		
+		List<Juzi> juziList = new ArrayList<>();
+		
+		for(int i =0;i<8;i++) {
+			Juzi juzi = new Juzi();
+			juzi.applyDesc = "SHI";
+			juzi.content = "zsjfslk fjksdjfldsjfsljsf  ";
+			juzi.author ="raoDong ming";
+			juziList.add(juzi);
+			
+			juzi = new Juzi();
+			juzi.applyDesc = "SHI";
+			juzi.content = "这是搜索的一个结果：  " + query;
+			juzi.author ="raoDong ming";
+			juziList.add(juzi);
+		}
+	
+
+		
+		this.setAttr("juziList", juziList);
+		this.setAttr("q", query);
+
 		render("serach_list.html");
 	}
 
