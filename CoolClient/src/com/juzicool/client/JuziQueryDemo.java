@@ -21,8 +21,7 @@ public class JuziQueryDemo {
 	
 	
 	public static void main(String[] args)throws Exception {
-		RestClient restClient = RestClient.builder(
-	            new HttpHost("localhost", 9200, "http")).build();
+		RestClient restClient = RestClientTest.createRestClient();
 		/**
 		 * GET /juzicool/juzi/_search?explain=false
 {

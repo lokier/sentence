@@ -1,17 +1,10 @@
+PUT /juzicool
 {
 	"settings": {
-		"index": {
-			"number_of_shards": "1",
-			"number_of_replicas": "1"
-		},
-		"analysis": {
-			"analyzer": {
-				"juzi_keyword": {
-					"type": "pattern",
-					"pattern": "[\\[\\]【】,《》（）_，；。、-？！：─…—”〈〉,;:'\"\\`~|?!@#$%^&*()-+=]"
-				}
-			}
-		}
+        "refresh_interval" : "5s",
+        "number_of_shards": "1",
+        "number_of_replicas": "1"
+        
 	},
 	"mappings": {
 		"juzi": {
@@ -22,11 +15,11 @@
 				},
 				"from": {
 					"type": "text",
-					"analyzer": "juzi_keyword"
+					"analyzer": "ik_smart"
 				},
 				"author": {
 					"type": "text",
-					"analyzer": "juzi_keyword"
+					"analyzer": "ik_smart"
 				},
 				"category": {
 					"type": "keyword"
@@ -37,7 +30,7 @@
 				},
 				"tags": {
 					"type": "text",
-					"analyzer": "juzi_keyword"
+					"analyzer": "ik_smart"
 				},
 				"applyDesc": {
 					"type": "text",
