@@ -15,13 +15,12 @@
 package com.juzicool.search.controller;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.jfinal.aop.Before;
 import com.jfinal.club.common.controller.BaseController;
 import com.jfinal.club.common.interceptor.AuthCacheClearInterceptor;
-import com.jfinal.club.common.model.Project;
-import com.juzicool.data.Juzi;
-import com.juzicool.search.service.SearchService;
+import com.jfinal.plugin.activerecord.Page;
+import com.juzicool.search.Juzi;
+import com.juzicool.search.plugin.SearchService;
 
 
 /**
@@ -36,33 +35,38 @@ public class SearchController extends BaseController {
 		render("index.html");
 	}
 	
+	/***
+	 * 分页查找从1开始找。
+	 */
 	public void search() {
 		//setAttr("q", value);
 		String query = super.getPara("q", "");
+		int currentPage = super.getParaToInt("page", 1); //从1开始
+		int pageSize = super.getParaToInt("size", 0);
+		
+		if(currentPage < 1) {
+			currentPage = 1;
+		}
+		
+		if(pageSize >20) {
+			pageSize = 20;
+		}
+		if(pageSize < 1) {
+			pageSize = 10;
+		}
 		if(query.isEmpty()) {
 			 render("index.html");
 			 return;
 		}
 		
-		List<Juzi> juziList = new ArrayList<>();
+		Page<Juzi> pageResult = srv.query(query,currentPage,pageSize);
 		
-		for(int i =0;i<8;i++) {
-			Juzi juzi = new Juzi();
-			juzi.applyDesc = "SHI";
-			juzi.content = "zsjfslk fjksdjfldsjfsljsf  ";
-			juzi.author ="raoDong ming";
-			juziList.add(juzi);
-			
-			juzi = new Juzi();
-			juzi.applyDesc = "SHI";
-			juzi.content = "这是搜索的一个结果：  " + query;
-			juzi.author ="raoDong ming";
-			juziList.add(juzi);
-		}
+		int totalPage = pageResult.getTotalPage() > 100 ?100:pageResult.getTotalPage();
 	
-
-		
-		this.setAttr("juziList", juziList);
+		this.setAttr("page", pageResult);
+		this.setAttr("currentPage", currentPage);
+		this.setAttr("totalPage", totalPage);
+		this.setAttr("linkPage", "./search?q="+query+"&size="+pageSize);
 		this.setAttr("q", query);
 
 		render("serach_list.html");
@@ -70,7 +74,7 @@ public class SearchController extends BaseController {
 
 	@Before(AuthCacheClearInterceptor.class)
 	public void clear() {
-		srv.clearCache();
+		//srv.clearCache();
 		redirect("/");
 	}
 }

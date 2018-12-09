@@ -59,25 +59,31 @@
 						<div class="aw-mod aw-explore-list">
 							<div class="mod-body">
 								<div class="aw-common-list">
-									#for(juzi : juziList)
+									#for(juzi : page.getList())
 									<div class="aw-item " data-topic-id="8,2,59,">
-										<a class="aw-user-name hidden-xs" data-id="445" href="http://demo.qa.shoutu.cn/q001/?/people/bmggwanm" rel="nofollow"><img src="./assets-v2/css/45_avatar_max.jpg" alt=""></a>	<div class="aw-question-content">
+										 	
+										 	<div class="aw-question-content">
 											
 											<p>
-												<a href="http://demo.qa.shoutu.cn/q001/?/explore/category-120">分类</a> 
-												• <a href="http://demo.qa.shoutu.cn/q001/?/topic/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE" class="aw-topic-name text-color-999" data-id="8">标签1</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E5%BE%AE%E4%BF%A1" class="aw-topic-name text-color-999" data-id="2">标签2</a><a href="http://demo.qa.shoutu.cn/q001/?/topic/%E6%A3%8B%E7%89%8C%E6%B8%B8%E6%88%8F" class="aw-topic-name text-color-999" data-id="59">标签3</a>		
+												<a href="javascript:">#(juzi.category)</a> 
 											</p>
 											
 											<h4>
 												#(juzi.content)
 											</h4>
 											
-											<div class="pull-right hidden-xs contribute">
-												<span class="pull-right text-color-999">贡献</span>
-												<a class="aw-user-name" data-id="478" href="http://demo.qa.shoutu.cn/q001/?/people/wsh5136132" rel="nofollow"><img src="./assets-v2/css/img/avatar.jpg" alt=""></a>
-											</div>
+										
 											<p>
-												<span class="text-color-999">作者：#(juzi.author) • 来自： #(juzi.from)</span>
+												<span class="text-color-999">
+												#if(juzi.author!=null && juzi.author!="")
+													作者：<b>#(juzi.author)</b>&nbsp;
+												#end
+												#if(juzi.from!=null && juzi.from!="")
+													来自：<b>#(juzi.from)</b>&nbsp;
+												#end
+												
+												
+												</span>
 																
 											</p>
 										</div>
@@ -86,37 +92,7 @@
 								</div>
 							</div>
 							
-							<div class="mod-footer">
-								<div class="page-control">
-									<ul class="pagination">
-										<li class="active">
-											<a href="javascript:;">1</a></li><li>
-											<a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">2</a>
-										</li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-3">3</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-4">4</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">&gt;</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-10">&gt;&gt;</a>
-									</li></ul>
-								</div>							
-							</div>
-							
-							<div class="mod-footer">
-								<div class="page-control">
-									<ul class="pagination">
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-3">&lt;</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0">1</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-2">2</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-3">3</a></li>
-										<li class="active"><a href="javascript:;">4</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-5">5</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-6">6</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-7">7</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-5">&gt;</a></li>
-										<li><a href="http://demo.qa.shoutu.cn/q001/?/sort_type-new__day-0__is_recommend-0__page-10">&gt;&gt;</a></li>
-									</ul>
-								</div>
-							</div>
+							#@paginate2(currentPage,totalPage,linkPage)
 
 							
 						</div>
@@ -127,11 +103,11 @@
 			<div class="col-sm-12 col-md-3 aw-side-bar hidden-xs hidden-sm">				
 				<div class="aw-mod aw-text-align-justify">
 					<div class="mod-head">
-						<a href="http://demo.qa.shoutu.cn/q001/?/topic/channel-hot" class="pull-right">更多 &gt;</a>
+						<a href="javascript:" class="pull-right">更多 &gt;</a>
 						<h3>热门话题</h3>
 					</div>
 					<div class="mod-body">
-							xxxxx	
+							暂时未有热门话题	
 					</div>
 				</div>
 			
@@ -142,53 +118,24 @@
 					<div class="mod-body">
 						<ul class="list">
 											<li>
-									<a href="http://demo.qa.shoutu.cn/q001/?/feature/3">不得不关注的设计基础话题</a>
-									<p class="text-color-999">-该专题收录 5 个话题</p>
+									<a href="javascript:">空缺中</a>
+									<p class="text-color-999">-该专题收录 0 个话题</p>
 								</li>
 								
 											<li>
-									<a href="http://demo.qa.shoutu.cn/q001/?/feature/2">企业管理层关注的一些话题</a>
-									<p class="text-color-999">-该专题收录 5 个话题</p>
+									<a href="javascript:">空缺中</a>
+									<p class="text-color-999">-该专题收录 0 个话题</p>
 								</li>
 								
 											<li>
-									<a href="http://demo.qa.shoutu.cn/q001/?/feature/1">天猫双十一相关话题集锦</a>
-									<p class="text-color-999">-该专题收录 5 个话题</p>
+									<a href="javascript:">空缺中</a>
+									<p class="text-color-999">-该专题收录 0 个话题</p>
 								</li>
 								
 									</ul>
 					</div>
 				</div>
-				<div class="aw-mod aw-text-align-justify">
-					<div class="mod-head">
-						<a href="http://demo.qa.shoutu.cn/q001/?/people/" class="pull-right">更多 &gt;</a>
-						<h3>活跃用户</h3>
-					</div>
-					<div class="mod-body">
-									
-						<dl>
-							<dt class="pull-left aw-border-radius-5">
-								<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%AD%A5%E8%A1%8C%E8%80%85"><img class="avatar" alt="" src="./assets-v2/css/avatar-mid-img.png"></a>
-							</dt>
-							<dd class="pull-left">
-								<a href="http://demo.qa.shoutu.cn/q001/?/people/%E6%AD%A5%E8%A1%8C%E8%80%85" data-id="482" class="aw-user-name">步行者									
-								</a>
-								<p>0 个问题, 0 次赞同</p>
-							</dd>
-						</dl>
-							
-						<dl>
-							<dt class="pull-left aw-border-radius-5">
-								<a href="http://demo.qa.shoutu.cn/q001/?/people/akenyIsa"><img class="avatar" alt="" src="./assets-v2/css/avatar-mid-img.png"></a>
-							</dt>
-							<dd class="pull-left">
-								<a href="http://demo.qa.shoutu.cn/q001/?/people/akenyIsa" data-id="481" class="aw-user-name">akenyIsa									
-								</a>
-								<p>0 个问题, 0 次赞同</p>
-							</dd>
-						</dl>
-									</div>
-				</div>					
+						
 					
 			</div>
 			<!-- end 侧边栏 -->

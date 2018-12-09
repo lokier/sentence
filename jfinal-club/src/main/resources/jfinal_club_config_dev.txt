@@ -18,5 +18,10 @@ pvUpdate.cron=0 * * * *
 pvUpdate.class=com.jfinal.club.common.pageview.PageViewUpdateTask
 pvUpdate.enable=true
 
+es_host=localhost
+es_port=9200
+es_name=
+es_password=
+
 
 
