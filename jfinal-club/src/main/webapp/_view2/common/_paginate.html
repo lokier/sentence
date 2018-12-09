@@ -1,0 +1,46 @@
+### 分页模板函数，三个参数含义分别为：当前页、总页数，分页前方的链接
+### 具体用法在 jfinal-club 中有很多
+#define paginate2(currentPage, totalPage, link)
+#if(totalPage < 2 || currentPage > totalPage)
+	#return
+#end
+
+#setLocal(startPage = currentPage - 3)
+#if(startPage < 1)
+	#setLocal(startPage = 1)
+#end
+
+#setLocal(endPage = currentPage + 3)
+#if(endPage > totalPage)
+	#setLocal(endPage = totalPage)
+#end
+
+	<div class="mod-footer">
+		<div class="page-control">
+			<ul class="pagination">
+#if(currentPage > 1)
+			<li><a href="#(link)&page=#(currentPage - 1)">&lt;</a></li>
+#end
+#if(currentPage - 3 > 1)
+	<li><a href="#(link)&page=1">1</a></li>
+#end
+#for(i : [startPage..endPage])
+#if(currentPage == i)
+	<li class="active"><a href="javascript:void(0);">#(i)</a></li>
+#else
+	<li><a href="#(link)&page=#(i)">#(i)</a></li>
+#end
+#end
+#if(currentPage + 3 < totalPage)
+	<li><a href="#(link)&page=#(totalPage)">#(totalPage)</a></li>
+#end
+#if(currentPage < totalPage)
+	<li><a href="#(link)$page=#(currentPage + 1)">&gt;</a></li>
+#end
+			</ul>
+		</div>
+	</div>
+#end
+
+	
+										
