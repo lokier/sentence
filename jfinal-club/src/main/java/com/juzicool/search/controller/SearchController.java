@@ -71,6 +71,10 @@ public class SearchController extends BaseController {
 
 		render("serach_list.html");
 	}
+	
+	public void coopration() {
+		this.render("coopration.html");
+	}
 
 	@Before(AuthCacheClearInterceptor.class)
 	public void clear() {
