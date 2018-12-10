@@ -14,6 +14,10 @@
 
 package com.jfinal.club.login;
 
+import java.util.Enumeration;
+
+import org.apache.commons.lang3.StringUtils;
+
 import com.jfinal.core.Controller;
 import com.jfinal.validate.Validator;
 
@@ -22,7 +26,7 @@ import com.jfinal.validate.Validator;
  */
 public class LoginValidator extends Validator {
 
-	protected void validate(Controller c) {
+	public void validate(Controller c) {
 		setShortCircuit(true);
 
 		validateRequired("userName", "userNameMsg", "邮箱不能为空");
@@ -32,7 +36,19 @@ public class LoginValidator extends Validator {
 		validateCaptcha("captcha", "captchaMsg", "验证码不正确");
 	}
 
-	protected void handleError(Controller c) {
+	public void handleError(Controller c) {
+		Enumeration<String> enums = c.getAttrNames();
+		Object key =  enums != null && enums.hasMoreElements() ? enums.nextElement(): null;
+		if(key instanceof String) {
+			String error= c.getCookie(key.toString(), null);
+			if(!StringUtils.isEmpty(error)){
+				String jsonText = "{\"rsm\":null,\"errno\":-1,\"err\":\""+error+"\"}";
+				c.renderJson(jsonText);
+				//validate error 
+				return;
+			}
+		}
+	
 		c.renderJson();
 	}
 }
