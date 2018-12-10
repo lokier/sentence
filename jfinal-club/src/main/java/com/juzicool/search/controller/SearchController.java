@@ -61,6 +61,11 @@ public class SearchController extends BaseController {
 		
 		Page<Juzi> pageResult = srv.query(query,currentPage,pageSize);
 		
+		if(pageResult == null) {
+			this.renderError(404);
+			return;
+		}
+		
 		int totalPage = pageResult.getTotalPage() > 100 ?100:pageResult.getTotalPage();
 	
 		this.setAttr("page", pageResult);

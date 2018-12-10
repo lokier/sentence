@@ -1,6 +1,7 @@
 package com.juzicool.search.plugin;
 
 import java.io.IOException;
+import java.util.LinkedList;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
@@ -10,21 +11,33 @@ import org.apache.http.client.CredentialsProvider;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.nio.client.HttpAsyncClientBuilder;
+import org.apache.log4j.Logger;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 
 import com.jfinal.kit.Prop;
 import com.jfinal.kit.PropKit;
-import com.jfinal.plugin.activerecord.Page;
-import com.juzicool.search.Juzi;
 
 /*pacakge*/ class ElasticSearch {
 	
 	private static Prop p = PropKit.use("jfinal_club_config_dev.txt");
+    private static Logger log = Logger.getLogger(ElasticSearch.class);
+
+	private static final int MAX_INSTANCE_COUNT = 20;
+	private static ElasticSearch gES = new ElasticSearch();
+	
+	private int maxRequst = MAX_INSTANCE_COUNT;
+	private int currentRequestCount = 0;
+	
+	private  LinkedList<RestClient> mClientsLinks = new LinkedList<>();
+	
+	public static ElasticSearch get() {
+		return gES;
+	}
 	
 	RestClientBuilder mBuilder;
 	
-	ElasticSearch(){
+	private ElasticSearch(){
 		mBuilder = createRestClientBuilder();
 	}
 	
@@ -36,10 +49,7 @@ import com.juzicool.search.Juzi;
 		final String password = p.get("es_password","");
 		final int timeout = Integer.parseInt(p.get("es_timeout","30000"));
 
-		RestClientBuilder builder = RestClient.builder(
-	            new HttpHost(host, port));
-		
-	     
+		RestClientBuilder builder = RestClient.builder(new HttpHost(host, port));
 	        
 	        builder.setRequestConfigCallback(new RestClientBuilder.RequestConfigCallback() {
 	            @Override
@@ -68,17 +78,38 @@ import com.juzicool.search.Juzi;
 	}
 	
 	public RestClient requestClient() {
+		final RestClient client;
+		synchronized (this) {
+			currentRequestCount++;
+			 client = mClientsLinks.pollFirst();
+		}
+		
+		if(currentRequestCount > maxRequst) {
+			log.warn("requestClient: 请求的ES实例超过池中的数量：maxRequst = " + maxRequst);
+			maxRequst = currentRequestCount;
+		}
+		
+		if(client!= null) {
+			return client;
+		}
 		RestClient restClient = mBuilder.build();
 		return restClient;
 	}
 
 	
 	public void releaseClient(RestClient client) {
+		
+		synchronized (this) {
+			currentRequestCount --;
+			if(mClientsLinks.size() < MAX_INSTANCE_COUNT) {
+				mClientsLinks.push(client);
+				return;
+			}
+		}
 		try {
 			client.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.warn("releaseClient:", e);
 		}
 	}
 
