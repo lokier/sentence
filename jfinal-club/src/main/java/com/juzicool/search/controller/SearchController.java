@@ -13,14 +13,15 @@
  */
 
 package com.juzicool.search.controller;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.URLEncoder;
+
 import com.jfinal.aop.Before;
 import com.jfinal.club.common.controller.BaseController;
 import com.jfinal.club.common.interceptor.AuthCacheClearInterceptor;
 import com.jfinal.plugin.activerecord.Page;
 import com.juzicool.search.Juzi;
 import com.juzicool.search.plugin.SearchService;
+import com.juzicool.search.util.UrlUtils;
 
 
 /**
@@ -67,11 +68,12 @@ public class SearchController extends BaseController {
 		}
 		
 		int totalPage = pageResult.getTotalPage() > 100 ?100:pageResult.getTotalPage();
-	
+		
+		
 		this.setAttr("page", pageResult);
 		this.setAttr("currentPage", currentPage);
 		this.setAttr("totalPage", totalPage);
-		this.setAttr("linkPage", "./search?q="+query+"&size="+pageSize);
+		this.setAttr("linkPage", "./search?q="+UrlUtils.encodeUtf8(query)+"&size="+pageSize);
 		this.setAttr("q", query);
 
 		render("serach_list.html");
