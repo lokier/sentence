@@ -42,7 +42,6 @@ public class ImportEexcel2ES {
 		
 		RestClient restClient = RestClientTest.createRestClient();
 		
-		
 		//initIndex(restClient);
 		
 		int juziId = 0;

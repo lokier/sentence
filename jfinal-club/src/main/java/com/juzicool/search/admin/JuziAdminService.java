@@ -15,12 +15,23 @@
 package com.juzicool.search.admin;
 
 import com.jfinal.plugin.activerecord.Db;
+import com.juzicool.search.JuziObject;
+import com.juzicool.search.plugin.ElasticSearch;
 import com.jfinal.kit.Ret;
+import com.alibaba.fastjson.JSON;
 import com.jfinal.club.common.model.Document;
 import com.jfinal.club.common.model.Juzi;
 import com.jfinal.club.document.DocumentService;
+
+import java.io.File;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
+
+import org.elasticsearch.client.Request;
+import org.elasticsearch.client.Response;
+import org.elasticsearch.client.ResponseListener;
+import org.elasticsearch.client.RestClient;
 
 /**
  * document 管理业务
@@ -28,6 +39,8 @@ import java.util.List;
 public class JuziAdminService  {
 
 	private Juzi dao = new Juzi().dao();
+	ElasticSearch es =  ElasticSearch.get();
+
 
 	public Ret save(Document doc) {
 		doc.setCreateAt(new Date());
@@ -35,6 +48,16 @@ public class JuziAdminService  {
 		doc.save();
 		DocumentService.me.clearCache();    // 清缓存
 		return Ret.ok();
+	}
+	
+	public void batchImportByExecelFile(File excelFile, int accountId) throws Exception {
+		
+		
+		JuziExcelReader reader  = new JuziExcelReader(excelFile);
+		reader.prepare();
+		
+		
+		
 	}
 	
 

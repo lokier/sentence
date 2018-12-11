@@ -20,6 +20,7 @@ import com.jfinal.club.common.controller.BaseController;
 import com.jfinal.club.common.interceptor.AuthCacheClearInterceptor;
 import com.jfinal.club.common.model.Juzi;
 import com.jfinal.plugin.activerecord.Page;
+import com.juzicool.search.JuziObject;
 import com.juzicool.search.plugin.SearchService;
 import com.juzicool.search.util.UrlUtils;
 
@@ -60,7 +61,7 @@ public class SearchController extends BaseController {
 			 return;
 		}
 		
-		Page<Juzi> pageResult = srv.query(query,currentPage,pageSize);
+		Page<JuziObject> pageResult = srv.query(query,currentPage,pageSize);
 		
 		if(pageResult == null) {
 			this.renderError(404);

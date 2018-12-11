@@ -18,7 +18,7 @@ import org.elasticsearch.client.RestClientBuilder;
 import com.jfinal.kit.Prop;
 import com.jfinal.kit.PropKit;
 
-/*pacakge*/ class ElasticSearch {
+public class ElasticSearch {
 	
 	private static Prop p = PropKit.use("jfinal_club_config_dev.txt");
     private static Logger log = Logger.getLogger(ElasticSearch.class);

@@ -17,7 +17,9 @@ package com.juzicool.search.plugin;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.jfinal.plugin.ehcache.CacheKit;
+import com.juzicool.search.JuziObject;
 import com.jfinal.club.common.safe.JsoupFilter;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jfinal.club.common.model.Feedback;
@@ -28,12 +30,11 @@ import com.jfinal.club.common.model.Share;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;import java.util.PrimitiveIterator.OfDouble;
+import java.util.List;
+import java.util.PrimitiveIterator.OfDouble;
 import java.util.concurrent.CountDownLatch;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpHost;
 import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 import org.elasticsearch.client.Request;
@@ -46,10 +47,51 @@ import org.elasticsearch.client.RestClient;
  */
 public class SearchService {
     private static Logger log = Logger.getLogger(ElasticSearch.class);
-
+	private static final String INDEXS = "juzicool";
+	private static final String INDEX_NAME_TYPE = "juzi";
+	
 	public static final SearchService me = new SearchService();
 
 	ElasticSearch es =  ElasticSearch.get();
+	
+	/**
+	 * 更新句子的索引
+	 */
+	public void updateSearchIndex(List<Juzi> juziList) {
+			CountDownLatch latch = new CountDownLatch(juziList.size());
+			RestClient client = es.requestClient();
+			try {
+			
+				for(Juzi juzi: juziList) {
+					String jsonString = JSON.toJSONString(juzi);
+					
+					//juziId++;
+					Request request = new Request("put",  "/"+INDEXS+"/"+INDEX_NAME_TYPE+"/"+juzi.getId());
+	
+					request.setJsonEntity(jsonString);
+					client.performRequestAsync(request, new ResponseListener() {
+						
+						@Override
+						public void onSuccess(Response arg0) {
+							latch.countDown();
+						}
+						
+						@Override
+						public void onFailure(Exception arg0) {
+							latch.countDown();
+					
+						}
+					});
+				}
+				latch.await();
+			}catch(Exception ex) {
+				log.warn(ex.getMessage(), ex);
+			}finally {
+				es.releaseClient(client);
+			}
+			
+		
+	}
 	
 	/**
 	 * 
@@ -58,7 +100,7 @@ public class SearchService {
 	 * @param pageSize
 	 * @return
 	 */
-	public Page<Juzi> query(String query,final int currenPage,final int pageSize){
+	public Page<JuziObject> query(String query,final int currenPage,final int pageSize){
 		
 		if(currenPage < 1 || pageSize < 1) {
 			throw new RuntimeException("error index must > 0 ");
@@ -87,7 +129,7 @@ public class SearchService {
 		
 			if(json.containsKey("hits")) {
 				JSONObject hitsObject = json.getJSONObject("hits");
-				ArrayList<Juzi> juziList = new ArrayList<>();
+				ArrayList<JuziObject> juziList = new ArrayList<>();
 				
 				int total = hitsObject.getInteger("total");
 				JSONArray hitsArray = hitsObject.getJSONArray("hits");
@@ -126,7 +168,7 @@ public class SearchService {
 					totalPage++;
 				}
 				
-				return new Page<Juzi>(juziList,pageIndex,pageSize,totalPage,total);
+				return new Page<JuziObject>(juziList,pageIndex,pageSize,totalPage,total);
 			}
 			
 			//json.get
