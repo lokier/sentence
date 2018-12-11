@@ -11,4 +11,5 @@ public class Juzi extends BaseJuzi<Juzi> {
     public static final int PUBLIC_OK = 1;    // 已发布
     
     
+    
 }

@@ -17,16 +17,17 @@ package com.juzicool.search.plugin;
 import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.jfinal.plugin.ehcache.CacheKit;
-import com.juzicool.search.Juzi;
 import com.jfinal.club.common.safe.JsoupFilter;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jfinal.club.common.model.Feedback;
+import com.jfinal.club.common.model.Juzi;
 import com.jfinal.club.common.model.Project;
 import com.jfinal.club.common.model.Share;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;import java.util.PrimitiveIterator.OfDouble;
 import java.util.concurrent.CountDownLatch;
 
@@ -94,16 +95,29 @@ public class SearchService {
 				for(int i = 0; i < length;i++) {
 					JSONObject juziItem = hitsArray.getJSONObject(i).getJSONObject("_source");
 					
-					Juzi juzi = new Juzi();
-					juzi.applyDesc = juziItem.getString("applyDesc");
-					juzi.author = juziItem.getString("author");
-					juzi.category = juziItem.getString("category");
-					juzi.content = toHtml(juziItem.getString("content"));
-					juzi.from = juziItem.getString("from");
+					
+					String applyDesc = juziItem.getString("applyDesc");
+					String author = juziItem.getString("author");
+					String category = juziItem.getString("category");
+					String content = toHtml(juziItem.getString("content"));
+					String from = juziItem.getString("from");
 					//juzi.length = juziItem.getIntValue("length");
-					juzi.remark = juziItem.getString("remark");
-					juzi.tags = juziItem.getString("tags");
-					juzi.updateTime = juziItem.getLongValue("updateTime");
+					String remark = juziItem.getString("remark");
+					String tags = juziItem.getString("tags");
+					long  updateTime = juziItem.getLongValue("updateTime");
+					
+					Juzi juzi = new Juzi();
+					
+					juzi.setApplyDesc(applyDesc);
+					juzi.setAuthor(author);
+					juzi.setContent(content);
+					juzi.setCategory(category);
+					juzi.setFrom(from);
+					juzi.setRemark(remark);
+					juzi.setTags(tags);
+					juzi.setLength(content.length());
+					juzi.setUpdateAt(new Date(updateTime));
+					
 					juziList.add(juzi);
 				}
 				

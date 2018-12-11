@@ -17,6 +17,7 @@ package com.juzicool.search.admin;
 import com.jfinal.aop.Inject;
 import com.jfinal.club._admin.index.IndexAdminService;
 import com.jfinal.club.common.controller.BaseController;
+import com.jfinal.club.common.model.Account;
 
 /**
  * 后台管理首页
@@ -24,20 +25,19 @@ import com.jfinal.club.common.controller.BaseController;
 public class AdminJuziController extends BaseController {
 
 	@Inject
-	IndexAdminService srv;
+	JuziAdminService srv;
 
 	public void index() {
-		setAttr("accountProfile", srv.getAccountProfile());
-		setAttr("projectProfile", srv.getProjectProfile());
-		setAttr("shareProfile", srv.getShareProfile());
-		setAttr("feedbackProfile", srv.getFeedbackProfile());
-		setAttr("permissionProfile", srv.getPermissionProfile());
+		Account account = super.getLoginAccount();
+		
+		setAttr("accountId", account.getId());
 
 		render("index.html");
 	}
 	
 	
 	public void batchImport() {
+		int accountId = getParaToInt("accountId");
 		
 		renderJson("{\"result\":0}");
 	}
