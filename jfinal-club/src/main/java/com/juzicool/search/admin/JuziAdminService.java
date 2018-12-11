@@ -36,6 +36,7 @@ public class JuziAdminService  {
 		DocumentService.me.clearCache();    // 清缓存
 		return Ret.ok();
 	}
+	
 
 
 }
