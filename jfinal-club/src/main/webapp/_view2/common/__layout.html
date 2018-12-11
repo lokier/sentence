@@ -72,7 +72,16 @@
     	<p> <b><a style="font-size:15px" href="./coopration">《句子库网站招募合伙人计划》</a></b></p>
         Copyright © 2018 <a href='http://www.miibeian.gov.cn'>(粤ICP备18150237号)</a>, All Rights Reserved
 
-        <span class="hidden-xs">Powered By <a href="http://www.juzicool.com/?copyright" target="blank">句子酷</a></span>
+	        <span class="hidden-xs">
+	        	Powered By 句子酷
+	        	#if(loginAccount)
+							<a  href="/admin" target="_blank">管理</a>
+							<a href="/logout" >注销</a>
+						</a>
+						#else	
+						<a class="login" href="javascript:;" data-toggle="modal" data-target="#loginAjax">登录</a>
+						#end
+	        </span>
 
             </div>
 </div>
