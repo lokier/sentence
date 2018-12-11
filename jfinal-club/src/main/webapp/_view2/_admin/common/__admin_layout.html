@@ -1,0 +1,78 @@
+#--
+	如果是 pjax 请求则只调用 main 函数
+	否则调用 doAdminLayout 函数
+--#
+#define adminLayout2()
+	#if(isPjax)
+		#@main()
+	#else
+		#@doAdminLayout2()
+	#end
+#end
+
+#define doAdminLayout2()
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>句子酷 后台管理</title>
+
+	<!-- Bootstrap -->
+	<link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/assets/nprogress/nprogress.css" rel="stylesheet">
+	<link href="/assets/magic_input/magic-input.css" rel="stylesheet">
+	<link href="/assets/jcrop/css/jquery.Jcrop.min.css" rel="stylesheet">
+
+	<!-- 后台管理 css -->
+	<link href="/assets/css/jfinal-admin.css" rel="stylesheet">
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/assets/jquery/jquery.min-v1.12.4.js"></script>
+	<script src="/assets/jquery_form/jquery.form.min.js"></script>
+	<script src="/assets/jquery_pjax/jquery.pjax.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="/assets/nprogress/nprogress.js"></script>
+	<script src="/assets/layer/layer/layer.js"></script>
+
+	<script src="/assets/ueditor/ueditor.config.js"></script>
+	<script src="/assets/ueditor/ueditor.all.min.js"></script>
+
+	<script src="/assets/jcrop/js/jquery.Jcrop.min.js"></script>
+
+	<!-- 后台管理 js -->
+	<script src="/assets/js/jfinal-admin-common.js"></script>
+	<script src="/assets/js/jfinal-admin.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="/assets/bootstrap/js/html5shiv.min.js"></script>
+	<script src="/assets/bootstrap/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+<div class="jfa-page-box">
+	### 左侧区域容器
+	<div class="jfa-left-box">
+		<div class="jfa-logo">
+			句子酷
+		</div>
+		<div class="jfa-menu-box">
+			#include("_menu.html")
+		</div>
+	</div>
+
+	### 右侧区域容器
+	<div class="jfa-right-box" id="pjax-container">
+		#@main()
+	</div>
+</div>
+</body>
+</html>
+#end

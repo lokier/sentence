@@ -80,7 +80,7 @@ public class JFinalClubConfig extends JFinalConfig {
     public void configRoute(Routes me) {
 	   // me.add(new FrontRoutes());
 	    me.add(new com.juzicool.search.FrontRoutes());
-	    me.add(new AdminRoutes());
+	    me.add(new com.juzicool.search.AdminRoutes());
     }
     
     /**
@@ -107,8 +107,9 @@ public class JFinalClubConfig extends JFinalConfig {
 		//新的前台模板V2
 		me.addSharedFunction("/_view2/common/__layout.html");
 		me.addSharedFunction("/_view2/common/_paginate.html");
-
-	
+		//新的后台模板V2
+		me.addSharedFunction("/_view2/_admin/common/__admin_layout.html");
+		me.addSharedFunction("/_view2/_admin/common/_admin_paginate.html");
 	}
     
     /**

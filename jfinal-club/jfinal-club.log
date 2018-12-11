@@ -1,3 +1,20 @@
 
-2018-12-11 10:44:23
-[WARN]-[Thread: qtp1973538135-15]-[com.jfinal.core.ActionHandler.handleActionException()]: 404 Not Found: /admin/project
+2018-12-11 15:30:47
+[WARN]-[Thread: qtp1372082959-16]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
+
+2018-12-11 15:35:02
+[WARN]-[Thread: qtp1372082959-18]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
+
+2018-12-11 15:35:08
+[WARN]-[Thread: qtp1372082959-17]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
+
+2018-12-11 15:36:01
+[WARN]-[Thread: qtp1372082959-42]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
+
+2018-12-11 15:37:35
+[ERROR]-[Thread: main]-[com.jfinal.kit.LogKit.error()]: port: 80 already in use!
+java.lang.IllegalStateException: port: 80 already in use!
+	at com.jfinal.server.jetty.JettyServer.doStart(JettyServer.java:86)
+	at com.jfinal.server.jetty.JettyServer.start(JettyServer.java:69)
+	at com.jfinal.core.JFinal.start(JFinal.java:160)
+	at com.jfinal.club.common.JFinalClubConfig.main(JFinalClubConfig.java:62)
