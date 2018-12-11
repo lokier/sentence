@@ -14,6 +14,8 @@
 
 package com.juzicool.search.controller;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.ActionKey;
@@ -53,13 +55,15 @@ public class LoginController extends Controller {
 			setAttr(LoginService.loginAccountCacheName, ret.get(LoginService.loginAccountCacheName));
 
 			//ret.set("returnUrl", getPara("returnUrl", "/"));    // 如果 returnUrl 存在则跳过去，否则跳去首页
-			String jsonText = "{rsm: url:\""+getPara("returnUrl", "/")+"\", errno: 1}";
-			renderJson(jsonText);
-
+			 String jsonText = "{\"rsm\": {\"url\":\""+getPara("returnUrl", "/")+"\"}, \"errno\": 1}";
+			 renderJson(jsonText);
 			 return;
 		}
-		
-		renderJson(ret);
+		String errMsg = ret.getStr("msg"); 
+		String error= StringUtils.isEmpty(errMsg) ? "登陆失败！":errMsg;
+
+		String jsonText = "{\"rsm\":null,\"errno\":-1,\"err\":\""+error+"\"}";
+		renderJson(jsonText);
 	}
 
 	/**
