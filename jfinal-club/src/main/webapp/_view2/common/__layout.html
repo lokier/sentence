@@ -47,10 +47,15 @@
 <script type="text/javascript" src="/assets-v2/css/stickUp.min.js"></script>
 <script type="text/javascript" src="/assets-v2/css/headroom.min.js"></script>
 	<script type="text/javascript">
+	#if(loginAccount)
+
+	#else
 		function updateCaptcha() {
-			$(".captcha").attr("src", "/login/captcha?v=" + Math.random());
-			$("#captchaInput").val("");
-		}
+		$(".captcha").attr("src", "/login/captcha?v=" + Math.random());
+		$("#captchaInput").val("");
+	}
+	#end
+		
 </script>
 <body #@bodyAttr?() ><noscript unselectable="on" id="noscript">
     <div class="aw-404 aw-404-wrap container">
@@ -78,6 +83,9 @@ class="icon icon-up"></i></a>
 ###  登陆页面对话框
 <div id="aw-ajax-box" class="aw-ajax-box"></div>
 
+#if(loginAccount)
+
+#else
 <div class="modal fade stui-login-ajax" id="loginAjax" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -104,7 +112,7 @@ class="icon icon-up"></i></a>
 							
 						</li>
 						<li class="last">
-							<label><input id="keepLogin" name='keepLogin' type="checkbox" value="1"/>记住我</label>
+							<label><input id="keepLogin" name='keepLogin'  type="checkbox" value="1"/>记住我</label>
 						</li>
 		
 						<li>
@@ -124,6 +132,7 @@ class="icon icon-up"></i></a>
         </div>
     </div>
 </div>
+#end
 
 </body></html>
 

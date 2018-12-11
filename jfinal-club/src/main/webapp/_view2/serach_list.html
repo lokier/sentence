@@ -27,6 +27,7 @@
 				<div class="aw-login-nav">
 					#if(loginAccount)
 						<span>#(loginAccount.nickName)<a  href="/admin" target="_blank">管理</a></span>
+						<a href="/logout" >注销</a>
 					</a>
 					#else	
 					<a class="login" href="javascript:;" data-toggle="modal" data-target="#loginAjax"><i class="icon icon-plus"></i> 登录</a>

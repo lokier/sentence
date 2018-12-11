@@ -15,6 +15,8 @@
 package com.jfinal.club.login;
 
 import java.util.Enumeration;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -28,6 +30,9 @@ public class LoginValidator extends Validator {
 
 	public void validate(Controller c) {
 		setShortCircuit(true);
+		
+		/*String name = c.getPara("userName");
+		String password = c.getPara("password");*/
 
 		validateRequired("userName", "userNameMsg", "邮箱不能为空");
 		validateEmail("userName", "userNameMsg", "邮箱格式不正确");
@@ -35,12 +40,34 @@ public class LoginValidator extends Validator {
 		validateRequired("password", "passwordMsg", "密码不能为空");
 		validateCaptcha("captcha", "captchaMsg", "验证码不正确");
 	}
+	
+	@Override
+	protected void validateRequired(String field, String errorKey, String errorMessage) {
+		String value = controller.getPara(field);
+		if (value == null || "".equals(value.trim())) {	// 经测试,form表单域无输入时值为"",跳格键值为"\t",输入空格则为空格" "
+			addError(errorKey, errorMessage);
+		}
+	}
+	
+	@Override
+	protected void validateRegex(String field, String regExpression, boolean isCaseSensitive, String errorKey, String errorMessage) {
+        String value = controller.getPara(field);
+        if (value == null) {
+        	addError(errorKey, errorMessage);
+        	return ;
+        }
+        Pattern pattern = isCaseSensitive ? Pattern.compile(regExpression) : Pattern.compile(regExpression, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(value.trim());
+        if (!matcher.matches()) {
+        	addError(errorKey, errorMessage);
+        }
+	}
 
 	public void handleError(Controller c) {
 		Enumeration<String> enums = c.getAttrNames();
 		Object key =  enums != null && enums.hasMoreElements() ? enums.nextElement(): null;
 		if(key instanceof String) {
-			String error= c.getCookie(key.toString(), null);
+			String error= c.getAttr(key.toString(), null);
 			if(!StringUtils.isEmpty(error)){
 				String jsonText = "{\"rsm\":null,\"errno\":-1,\"err\":\""+error+"\"}";
 				c.renderJson(jsonText);
