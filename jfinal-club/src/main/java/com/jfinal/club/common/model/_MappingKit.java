@@ -25,6 +25,7 @@ public class _MappingKit {
 		arp.addMapping("favorite", "id", Favorite.class);
 		arp.addMapping("feedback", "id", Feedback.class);
 		arp.addMapping("feedback_reply", "id", FeedbackReply.class);
+		arp.addMapping("juzi", "id", Juzi.class);
 		arp.addMapping("message", "id", Message.class);
 		arp.addMapping("news_feed", "id", NewsFeed.class);
 		arp.addMapping("permission", "id", Permission.class);

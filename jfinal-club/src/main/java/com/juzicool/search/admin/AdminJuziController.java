@@ -21,7 +21,7 @@ import com.jfinal.club.common.controller.BaseController;
 /**
  * 后台管理首页
  */
-public class AdminController extends BaseController {
+public class AdminJuziController extends BaseController {
 
 	@Inject
 	IndexAdminService srv;
@@ -37,8 +37,9 @@ public class AdminController extends BaseController {
 	}
 	
 	
-	public void importJuzi() {
-		render("importJuzi.html");
+	public void batchImport() {
+		
+		renderJson("{\"result\":0}");
 	}
 	
 }

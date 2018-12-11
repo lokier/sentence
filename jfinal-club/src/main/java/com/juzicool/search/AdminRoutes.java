@@ -18,6 +18,7 @@ import com.jfinal.club._admin.auth.AdminAuthInterceptor;
 import com.jfinal.club._admin.common.PjaxInterceptor;
 import com.jfinal.config.Routes;
 import com.juzicool.search.admin.AdminController;
+import com.juzicool.search.admin.AdminJuziController;
 
 /**
  * 后台管理路由
@@ -37,6 +38,8 @@ public class AdminRoutes extends Routes {
 		setBaseViewPath("/_view2/_admin");
 		
 		add("/admin", AdminController.class, "/");
+		add("/admin/juzi", AdminJuziController.class, "/juzi/");
+
 		
 	}
 }

@@ -1,0 +1,63 @@
+#@adminLayout2()
+
+#define main()
+<div class="jfa-header-box" id="jfa-header-box">
+	<div class="jfa-crumbs" id="jfa-crumbs">
+		句子管理
+	</div>
+	<div class="jfa-search-box"></div>
+	#include("/_view/_admin/common/_header_right.html")
+</div>
+
+### 内容区域
+<div class="jfa-content-box" id="jfa-content-box">
+	<div class="jfa-content" id="jfa-content">
+
+
+		<div class="jfa-table-box margin-top-30">
+			<form class="form-horizontal margin-top-30" id="myArticleForm" action="/admin/juzi/batchImport" method="post">
+					
+					<div class="form-group">
+						<label class="col-sm-4 control-label">Exel文件</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="role.name" value="">
+						</div>
+					</div>
+		
+					<div class="form-group">
+						<div class="col-sm-offset-4 col-sm-8">
+							<input class="btn btn-primary" type="submit" value="提交" />
+						</div>
+					</div>
+			</form>
+		</div>
+	</div><!-- END OF jfa-content -->
+</div><!-- END OF jfa-content-box -->
+
+<style type="text/css">
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		initMagicInput(prepareAction);
+	});
+
+	function prepareAction($this, state) {
+		return {
+			url: state ? "/admin/doc/publish" : "/admin/doc/unpublish",
+
+			// 与其它模块不同，这里传入了两个参数
+			data : {
+				mainMenu: $this.attr("data-mainMenu"),
+				subMenu: $this.attr("data-subMenu")
+			}
+		}
+	}
+</script>
+#end
+
+
+
+
+
+
+
