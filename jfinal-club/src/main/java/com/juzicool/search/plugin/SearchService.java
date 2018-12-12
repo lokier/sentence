@@ -18,6 +18,7 @@ import com.jfinal.plugin.activerecord.Page;
 import com.jfinal.plugin.activerecord.SqlPara;
 import com.jfinal.plugin.ehcache.CacheKit;
 import com.juzicool.search.JuziObject;
+import com.juzicool.search.util.JuziUtils;
 import com.jfinal.club.common.safe.JsoupFilter;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -63,7 +64,7 @@ public class SearchService {
 			try {
 			
 				for(Juzi juzi: juziList) {
-					String jsonString = JSON.toJSONString(juzi);
+					String jsonString = JuziUtils.toJson(juzi);
 					
 					//juziId++;
 					Request request = new Request("put",  "/"+INDEXS+"/"+INDEX_NAME_TYPE+"/"+juzi.getId());

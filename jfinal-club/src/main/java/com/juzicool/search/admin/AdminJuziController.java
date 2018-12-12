@@ -18,6 +18,7 @@ import com.jfinal.aop.Inject;
 import com.jfinal.club._admin.index.IndexAdminService;
 import com.jfinal.club.common.controller.BaseController;
 import com.jfinal.club.common.model.Account;
+import com.juzicool.search.admin.task.ImportJuziByFileTask;
 
 /**
  * 后台管理首页
@@ -29,17 +30,38 @@ public class AdminJuziController extends BaseController {
 
 	public void index() {
 		Account account = super.getLoginAccount();
+		ImportJuziByFileTask task = ImportJuziByFileTask.get(account.getId());
 		
-		setAttr("accountId", account.getId());
+		boolean doImport = getParaToBoolean("doImport", false);
 
-		render("index.html");
-	}
+			if(doImport &&! task.isRunning()) {
+				task.start();
+			}
+			
+			setAttr("accountId", account.getId());
+			setAttr("task", task);
+			render("index.html");
 	
-	
-	public void batchImport() {
-		int accountId = getParaToInt("accountId");
 		
-		renderJson("{\"result\":0}");
 	}
+	
+	
+/*	public void batchImport() {
+		int accountId = getParaToInt("accountId");
+		ImportJuziByFileTask task = ImportJuziByFileTask.request(accountId);
+		
+		if(!task.isRunning()) {
+			task.start();
+		}
+		
+		try {
+			setAttr("accountId", accountId);
+			setAttr("task", task);
+			render("index.html");
+		}finally {
+			ImportJuziByFileTask.release(task);
+		}
+		
+	}*/
 	
 }

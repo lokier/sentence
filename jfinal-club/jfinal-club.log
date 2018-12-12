@@ -1,165 +1,41 @@
 
-2018-12-11 15:30:47
-[WARN]-[Thread: qtp1372082959-16]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
-
-2018-12-11 15:35:02
-[WARN]-[Thread: qtp1372082959-18]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
-
-2018-12-11 15:35:08
-[WARN]-[Thread: qtp1372082959-17]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
-
-2018-12-11 15:36:01
-[WARN]-[Thread: qtp1372082959-42]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /user/detail/wd
-
-2018-12-11 15:37:35
-[ERROR]-[Thread: main]-[com.jfinal.kit.LogKit.error()]: port: 80 already in use!
-java.lang.IllegalStateException: port: 80 already in use!
-	at com.jfinal.server.jetty.JettyServer.doStart(JettyServer.java:86)
-	at com.jfinal.server.jetty.JettyServer.start(JettyServer.java:69)
-	at com.jfinal.core.JFinal.start(JFinal.java:160)
-	at com.jfinal.club.common.JFinalClubConfig.main(JFinalClubConfig.java:62)
-
-2018-12-11 19:22:48
-[WARN]-[Thread: qtp1973538135-20]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/detail/share
-
-2018-12-11 19:23:00
-[WARN]-[Thread: qtp1973538135-18]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/detail/importJuzi?_pjax=%23pjax-container
-
-2018-12-11 19:23:00
-[WARN]-[Thread: qtp1973538135-19]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/detail/importJuzi
-
-2018-12-11 19:28:33
-[WARN]-[Thread: qtp1973538135-36]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/detail/importJuzi
-
-2018-12-11 19:28:42
-[WARN]-[Thread: qtp1973538135-39]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /common/upload/ueditor?action=config&&noCache=1544527722812
-
-2018-12-11 19:28:51
-[WARN]-[Thread: qtp1973538135-39]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /common/upload/ueditor?action=config&&noCache=1544527731076
-
-2018-12-11 19:28:54
-[WARN]-[Thread: qtp1973538135-39]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /common/upload/ueditor?action=config&&noCache=1544527734294
-
-2018-12-11 19:29:09
-[WARN]-[Thread: qtp1973538135-39]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /common/upload/ueditor?action=config&&noCache=1544527749644
-
-2018-12-11 19:41:36
-[WARN]-[Thread: qtp1973538135-18]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/detail/project
-
-2018-12-11 19:44:16
-[ERROR]-[Thread: qtp1973538135-36]-[com.jfinal.core.ActionHandler.handle()]: /admin/juzi
-java.lang.RuntimeException: File not found : E:\git-hub\sentence\jfinal-club\src\main\webapp/index.html
-	at com.jfinal.template.source.FileSource.getContent(FileSource.java:70)
-	at com.jfinal.template.Engine.buildTemplateBySourceFactory(Engine.java:159)
-	at com.jfinal.template.Engine.getTemplate(Engine.java:144)
-	at com.jfinal.render.TemplateRender.render(TemplateRender.java:61)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:106)
-	at com.jfinal.club.common.handler.UrlSeoHandler.handle(UrlSeoHandler.java:78)
-	at com.jfinal.plugin.druid.DruidStatViewHandler.handle(DruidStatViewHandler.java:81)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:86)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
-	at org.eclipse.jetty.server.Server.handle(Server.java:503)
-	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
-	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
-	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
-	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
-	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
-	at java.lang.Thread.run(Unknown Source)
-
-2018-12-11 19:44:16
-[ERROR]-[Thread: qtp1973538135-36]-[com.jfinal.core.JFinalFilter.doFilter()]: /admin/juzi
-java.lang.IllegalStateException: STREAM
-	at org.eclipse.jetty.server.Response.getWriter(Response.java:931)
-	at com.jfinal.render.ErrorRender.render(ErrorRender.java:60)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:122)
-	at com.jfinal.club.common.handler.UrlSeoHandler.handle(UrlSeoHandler.java:78)
-	at com.jfinal.plugin.druid.DruidStatViewHandler.handle(DruidStatViewHandler.java:81)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:86)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
-	at org.eclipse.jetty.server.Server.handle(Server.java:503)
-	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
-	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
-	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
-	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
-	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
-	at java.lang.Thread.run(Unknown Source)
-
-2018-12-11 21:12:29
-[ERROR]-[Thread: qtp1372082959-39]-[com.jfinal.core.ActionHandler.handle()]: /admin/juzi
-com.jfinal.plugin.activerecord.ActiveRecordException: The attribute name does not exist: "accountId"
-	at com.jfinal.plugin.activerecord.Model.set(Model.java:217)
-	at com.juzicool.search.admin.AdminJuziController.index(AdminJuziController.java:33)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:75)
-	at com.jfinal.club._admin.common.PjaxInterceptor.intercept(PjaxInterceptor.java:15)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:69)
-	at com.jfinal.club._admin.auth.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:50)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:69)
-	at com.jfinal.club.common.interceptor.LoginSessionInterceptor.intercept(LoginSessionInterceptor.java:54)
-	at com.jfinal.aop.Invocation.invoke(Invocation.java:69)
-	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:81)
-	at com.jfinal.club.common.handler.UrlSeoHandler.handle(UrlSeoHandler.java:78)
-	at com.jfinal.plugin.druid.DruidStatViewHandler.handle(DruidStatViewHandler.java:81)
-	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:86)
-	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
-	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
-	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
-	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
-	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
-	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
-	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
-	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
-	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
-	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
-	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
-	at org.eclipse.jetty.server.Server.handle(Server.java:503)
-	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
-	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
-	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
-	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
-	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
-	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
-	at java.lang.Thread.run(Unknown Source)
+2018-12-12 16:47:17
+[WARN]-[Thread: Thread-14]-[com.jfinal.kit.LogKit.warn()]: java.sql.BatchUpdateException: Field 'createAt' doesn't have a default value
+com.jfinal.plugin.activerecord.ActiveRecordException: java.sql.BatchUpdateException: Field 'createAt' doesn't have a default value
+	at com.jfinal.plugin.activerecord.DbPro.batch(DbPro.java:1046)
+	at com.jfinal.plugin.activerecord.DbPro.batchSave(DbPro.java:1143)
+	at com.jfinal.plugin.activerecord.Db.batchSave(Db.java:619)
+	at com.juzicool.search.admin.task.ImportJuziByFileTask$1.run(ImportJuziByFileTask.java:90)
+Caused by: java.sql.BatchUpdateException: Field 'createAt' doesn't have a default value
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createBatchUpdateException(SQLError.java:1162)
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1778)
+	at com.mysql.jdbc.PreparedStatement.executeBatchInternal(PreparedStatement.java:1262)
+	at com.mysql.jdbc.StatementImpl.executeBatch(StatementImpl.java:970)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeBatch(FilterChainImpl.java:2596)
+	at com.alibaba.druid.filter.FilterAdapter.statement_executeBatch(FilterAdapter.java:2474)
+	at com.alibaba.druid.filter.FilterEventAdapter.statement_executeBatch(FilterEventAdapter.java:279)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeBatch(FilterChainImpl.java:2594)
+	at com.alibaba.druid.wall.WallFilter.statement_executeBatch(WallFilter.java:486)
+	at com.alibaba.druid.filter.FilterChainImpl.statement_executeBatch(FilterChainImpl.java:2594)
+	at com.alibaba.druid.proxy.jdbc.StatementProxyImpl.executeBatch(StatementProxyImpl.java:192)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.executeBatch(DruidPooledPreparedStatement.java:559)
+	at com.jfinal.plugin.activerecord.DbPro.batch(DbPro.java:1008)
+	at com.jfinal.plugin.activerecord.DbPro.batch(DbPro.java:1044)
+	... 3 more
+Caused by: java.sql.SQLException: Field 'createAt' doesn't have a default value
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:964)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2487)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2079)
+	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1756)
+	... 15 more

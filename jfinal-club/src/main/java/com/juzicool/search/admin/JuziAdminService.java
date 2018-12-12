@@ -16,31 +16,28 @@ package com.juzicool.search.admin;
 
 import com.jfinal.plugin.activerecord.Db;
 import com.juzicool.search.JuziObject;
-import com.juzicool.search.plugin.ElasticSearch;
+import com.juzicool.search.plugin.SearchService;
+import com.juzicool.search.util.JuziUtils;
+import com.jfinal.kit.LogKit;
 import com.jfinal.kit.Ret;
-import com.alibaba.fastjson.JSON;
 import com.jfinal.club.common.model.Document;
 import com.jfinal.club.common.model.Juzi;
 import com.jfinal.club.document.DocumentService;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-
-import org.elasticsearch.client.Request;
-import org.elasticsearch.client.Response;
-import org.elasticsearch.client.ResponseListener;
-import org.elasticsearch.client.RestClient;
 
 /**
  * document 管理业务
  */
 public class JuziAdminService  {
 
-	private Juzi dao = new Juzi().dao();
-	ElasticSearch es =  ElasticSearch.get();
 
+	private Juzi dao = new Juzi().dao();
+	//private ElasticSearch es =  ElasticSearch.get();
+	private SearchService mSearchService = new SearchService();
 
 	public Ret save(Document doc) {
 		doc.setCreateAt(new Date());
@@ -50,13 +47,46 @@ public class JuziAdminService  {
 		return Ret.ok();
 	}
 	
-	public void batchImportByExecelFile(File excelFile, int accountId) throws Exception {
+	
+	/****
+	 * 通过服务器导入
+	 * @param excelFile
+	 * @param accountId
+	 * @return
+	 */
+	public boolean batchImportByExecelFile(File excelFile, int accountId) {
 		
+		try {
+			JuziExcelReader reader  = new JuziExcelReader(excelFile);
+			reader.prepare();
+			
+			final int batchSize = 20;
+			while(true) {
+				List<JuziObject> juziList = reader.nextJuzi(batchSize);
+				if(juziList == null) {
+					break;
+				}
+				
+				ArrayList<Juzi> toSaveList = new ArrayList<>(juziList.size());
+				
+				for(JuziObject jOb: juziList) {
+					Juzi juzi = JuziUtils.createJuzi(jOb);
+					toSaveList.add(juzi);
+				}
+				
+				//存储到数据库
+				Db.batchSave(toSaveList, 20);
+				//更新服务器的索引数据
+				//TODO 如果服务器的数据与索引不同步怎么办
+				mSearchService.updateSearchIndex(toSaveList);
+				
+			}
+			return true;
+		}catch (Exception e) {
+			LogKit.warn(e.getMessage(),e);
+		}
 		
-		JuziExcelReader reader  = new JuziExcelReader(excelFile);
-		reader.prepare();
-		
-		
+		return false;
 		
 	}
 	

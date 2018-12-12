@@ -15,19 +15,25 @@
 
 
 		<div class="jfa-table-box margin-top-30">
-			<form class="form-horizontal margin-top-30" id="myArticleForm" action="/admin/juzi/batchImport" method="post">
+			<form class="form-horizontal margin-top-30" id="myArticleForm" action="/admin/juzi/" method="post">
 					<input type="hidden" name="accountId" value="#(accountId)" />
 					
+					#if(!task.isRunning())
 					<div class="form-group">
 						<label class="col-sm-4 control-label">Exel文件</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" name="role.name" value="">
 						</div>
-					</div>
-		
+					</div>					  
+				   #end
 					<div class="form-group">
 						<div class="col-sm-offset-4 col-sm-8">
-							<input class="btn btn-primary" type="submit" value="提交" />
+						#if(!task.isRunning())
+							<input type="hidden" name="doImport" value="true" />
+							<input class="btn btn-primary" type="submit" value="导入" />
+						#else
+							<a class="btn btn-primary" type="submit"  href="/admin/juzi/" /> 刷新 </a>
+						#end
 						</div>
 					</div>
 			</form>
