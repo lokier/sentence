@@ -1,6 +1,7 @@
 package com.juzicool.search.admin.task;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -46,11 +47,15 @@ public class ImportJuziByFileTask {
 			dirFile.mkdirs();
 		}
 		mUploadFile = new File(dirFile,accountId+".excel");
-		mUploadFile = new File("E:\\git-hub\\sentence\\CoolClient\\句子迷句集.xls");
+		//mUploadFile = new File("E:\\git-hub\\sentence\\CoolClient\\句子迷句集.xls");
 	}
 	
 	public boolean isRunning() {
 		return isRunning;
+	}
+	
+	public boolean isRead() {
+		return getFile().exists();
 	}
 	
 	public File getFile() {
@@ -66,9 +71,9 @@ public class ImportJuziByFileTask {
 			
 			@Override
 			public void run() {
-				
+				JuziExcelReader reader = null;
 				try {
-					JuziExcelReader reader  = new JuziExcelReader(mUploadFile);
+					 reader = new JuziExcelReader(mUploadFile);
 					reader.prepare();
 					final int batchSize = 20;
 					 SearchService mSearchService = new SearchService();
@@ -94,13 +99,25 @@ public class ImportJuziByFileTask {
 						//存储到数据库
 						Db.batchSave(toSaveList, 20);
 						//更新服务器的索引数据
-						//TODO 如果服务器的数据与索引不同步怎么办
+						//TODO 如果服务器的数据与索引不同步怎么办，要解决的问题
 						mSearchService.updateSearchIndex(toSaveList);
 						count++;
 						System.out.println(" import count :  " +  count );
 					}
+					
+	
 				}catch (Exception e) {
 					LogKit.warn(e.getMessage(),e);
+				}finally {
+					try {
+						reader.close();
+					} catch (Exception e) {
+						
+					}
+				}
+				
+				if(task.getFile().exists()) {
+					task.getFile().delete();
 				}
 				
 				isRunning = false;

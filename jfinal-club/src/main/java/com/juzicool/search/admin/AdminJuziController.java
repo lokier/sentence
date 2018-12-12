@@ -14,10 +14,17 @@
 
 package com.juzicool.search.admin;
 
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+
 import com.jfinal.aop.Inject;
 import com.jfinal.club._admin.index.IndexAdminService;
 import com.jfinal.club.common.controller.BaseController;
 import com.jfinal.club.common.model.Account;
+import com.jfinal.kit.LogKit;
+import com.jfinal.kit.Ret;
+import com.jfinal.upload.UploadFile;
 import com.juzicool.search.admin.task.ImportJuziByFileTask;
 
 /**
@@ -45,6 +52,48 @@ public class AdminJuziController extends BaseController {
 		
 	}
 	
+	public void upload() {
+		UploadFile uf = null;
+		Account account = super.getLoginAccount();
+
+		int accountId = account.getId();
+		ImportJuziByFileTask task = ImportJuziByFileTask.get(accountId);
+		
+		if(task.isRunning()) {
+			//renderJson(Ret.fail("msg", "已经上传新的文件"));
+			return;
+		}
+
+		try {
+			uf = getFile("excelFile", "/importJuzi/temp/", 10 * 1024 * 1024);
+			if (uf == null) {
+				renderJson(Ret.fail("msg", "请先选择上传文件"));
+				return;
+			}
+		} catch (Exception e) {
+			if (e instanceof com.jfinal.upload.ExceededSizeException) {
+				renderJson(Ret.fail("msg", "文件大小超出范围10M"));
+			} else {
+				if (uf != null) {
+					// 只有出现异常时才能删除，不能在 finally 中删，因为后面需要用到上传文件
+					uf.getFile().delete();
+				}
+				renderJson(Ret.fail("msg", e.getMessage()));
+			}
+			return ;
+		}finally {
+			if(uf != null) {
+				try {
+					FileUtils.copyFile(uf.getFile(), task.getFile());
+					uf.getFile().delete();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		redirect("/admin/juzi/");
+	}
 	
 /*	public void batchImport() {
 		int accountId = getParaToInt("accountId");

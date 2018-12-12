@@ -81,7 +81,7 @@ public class JFinalClubConfig extends JFinalConfig {
 	   // me.add(new FrontRoutes());
 	    me.add(new com.juzicool.search.FrontRoutes());
 	    me.add(new com.juzicool.search.AdminRoutes());
-	    //me.add(new AdminRoutes());
+	   // me.add(new AdminRoutes());
     }
     
     /**

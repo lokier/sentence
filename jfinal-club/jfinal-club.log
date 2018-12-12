@@ -39,3 +39,75 @@ Caused by: java.sql.SQLException: Field 'createAt' doesn't have a default value
 	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2079)
 	at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedStatement.java:1756)
 	... 15 more
+
+2018-12-12 16:57:26
+[ERROR]-[Thread: main]-[com.jfinal.kit.LogKit.error()]: port: 80 already in use!
+java.lang.IllegalStateException: port: 80 already in use!
+	at com.jfinal.server.jetty.JettyServer.doStart(JettyServer.java:86)
+	at com.jfinal.server.jetty.JettyServer.start(JettyServer.java:69)
+	at com.jfinal.core.JFinal.start(JFinal.java:160)
+	at com.jfinal.club.common.JFinalClubConfig.main(JFinalClubConfig.java:62)
+
+2018-12-12 18:37:55
+[WARN]-[Thread: qtp1865127310-19]-[com.jfinal.core.ActionHandler.handle()]: 404 Action Not Found: /admin/account/avatar?accountId=9&p=1
+
+2018-12-12 18:41:44
+[ERROR]-[Thread: qtp1865127310-19]-[com.jfinal.core.ActionHandler.handle()]: /admin/juzi/upload
+java.lang.NullPointerException
+	at com.juzicool.search.admin.AdminJuziController.upload(AdminJuziController.java:53)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:75)
+	at com.jfinal.club._admin.common.PjaxInterceptor.intercept(PjaxInterceptor.java:15)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:69)
+	at com.jfinal.club._admin.auth.AdminAuthInterceptor.intercept(AdminAuthInterceptor.java:50)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:69)
+	at com.jfinal.club.common.interceptor.LoginSessionInterceptor.intercept(LoginSessionInterceptor.java:54)
+	at com.jfinal.aop.Invocation.invoke(Invocation.java:69)
+	at com.jfinal.core.ActionHandler.handle(ActionHandler.java:81)
+	at com.jfinal.club.common.handler.UrlSeoHandler.handle(UrlSeoHandler.java:78)
+	at com.jfinal.plugin.druid.DruidStatViewHandler.handle(DruidStatViewHandler.java:81)
+	at com.jfinal.core.JFinalFilter.doFilter(JFinalFilter.java:86)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1340)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1242)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+	at org.eclipse.jetty.server.Server.handle(Server.java:503)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:364)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:305)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:103)
+	at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
+	at java.lang.Thread.run(Unknown Source)
+
+2018-12-12 18:47:54
+[ERROR]-[Thread: main]-[com.jfinal.kit.LogKit.error()]: port: 80 already in use!
+java.lang.IllegalStateException: port: 80 already in use!
+	at com.jfinal.server.jetty.JettyServer.doStart(JettyServer.java:86)
+	at com.jfinal.server.jetty.JettyServer.start(JettyServer.java:69)
+	at com.jfinal.core.JFinal.start(JFinal.java:160)
+	at com.jfinal.club.common.JFinalClubConfig.main(JFinalClubConfig.java:62)
+
+2018-12-12 18:59:44
+[ERROR]-[Thread: main]-[com.jfinal.kit.LogKit.error()]: port: 80 already in use!
+java.lang.IllegalStateException: port: 80 already in use!
+	at com.jfinal.server.jetty.JettyServer.doStart(JettyServer.java:86)
+	at com.jfinal.server.jetty.JettyServer.start(JettyServer.java:69)
+	at com.jfinal.core.JFinal.start(JFinal.java:160)
+	at com.jfinal.club.common.JFinalClubConfig.main(JFinalClubConfig.java:62)
